@@ -4,7 +4,7 @@
 $_SESSION = array();
 @session_destroy();
 //include "verifica.php"; 
-header("location:index.php");
+header("location:  ../index.php");
 ?>
 
 

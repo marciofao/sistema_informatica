@@ -8,7 +8,7 @@ require_once 'php_assets/header.php';
 	<div class="">
 
 		<h3>Acesso ao Sistema</h3>
-		<h4>conectado como <?php echo 	$_SESSION['usuario'] ?> - <a href="sair.php">sair</a></h4>
+		<h4>conectado como <?php echo 	$_SESSION['usuario'] ?> - <a href="php_assets/sair.php">sair</a></h4>
 
 
 		<div>

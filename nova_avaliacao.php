@@ -2,6 +2,22 @@
 $title="Nova Avaliação";
 require_once 'php_assets/header.php';
 
+//EXIGE NOME DO AVALIADOR PARA REALIZAR O CADASTRO
+if ($_SESSION['nome']=="") {
+	require_once "php_assets/header.php";
+	?>
+	<script>
+		alert("Complete o seu cadastro de usuário antes de continuar!");
+		window.location.href = "edita_usuario.php";
+	</script>
+	
+	<?php
+
+
+	require_once "php_assets/footer.php";
+	die();
+}
+
 
 $datas=$database->select('perguntas', "*", ["ORDER" => "ordem"]);
 
@@ -63,7 +79,6 @@ if ($_POST) {
 //var_dump($datas);
 //die();
 ?>
-
 
 	<div class="container">
 		<div class="row col-md-6">

@@ -26,6 +26,7 @@ if ($_POST) {
 			$_SESSION["cod"]=$data[0]['cod'];
 			$_SESSION["usuario"]=$data[0]['usuario'];
 			$_SESSION["nome"]=$data[0]['nome'];
+			//die($_SESSION['nome']);
 			header("location:inicio.php");
 		}
 		

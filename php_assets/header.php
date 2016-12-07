@@ -8,6 +8,7 @@ require_once 'php_assets/header.php';
  ?>
 */
 
+
 require_once "php_assets/verifica_sessao.php";
 require_once 'php_assets/conecta.php';
  ?>

@@ -22,8 +22,9 @@ if ($_POST) {
 
 	//}
 
-	
-	header("location:edita_usuario.php");
+	//OBRIGA A REINICIAR A SESSÃO E ATUALIZAR O NOME DE USUÁRIO DA SESSÃO:
+	header("location:php_assets/sair.php");
+	//header("location:edita_usuario.php");
 }
 
 //@session_start();

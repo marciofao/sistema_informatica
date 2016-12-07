@@ -3,7 +3,7 @@
 
 if (!isset($_SESSION["usuario"]))
 {
-	header("location: inicio.php?c=1");
+	header("location: ../inicio.php?c=1");
 ?> 
    <html>
    		<head><script>window.location='inicio.php?c=1'</script>
