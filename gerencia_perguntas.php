@@ -1,4 +1,5 @@
 <?php 	
+$title="Gerenciar Perguntas";
 require_once 'php_assets/header.php';
 
 
@@ -8,13 +9,13 @@ $datas=$database->select('perguntas', "*", ["ORDER" => "ordem"]);
 //die();
 ?>
 
-	<div class="container">
+	
 		<div class="">
 
 
 			<div class="panel panel-default">	
 				<div class="panel-heading">	
-					<h3 class="panel-title">Gerenciar perguntas</h3>
+					<h3 class="panel-title">Lista de perguntas</h3>
 
 				</div><!-- /.panel-heading -->
 				<table class="table table-striped">	
@@ -57,5 +58,4 @@ $datas=$database->select('perguntas', "*", ["ORDER" => "ordem"]);
 
 
 		</div><!-- /.row -->
-	</div><!-- /.content-fluid -->
 <?php 	require_once 'php_assets/footer.php'; ?>

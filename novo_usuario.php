@@ -1,5 +1,5 @@
 <?php 	
-$title = "Novo Usuário "
+$title = "Novo Usuário";
 require_once 'php_assets/header.php';
 
 if ($_POST) {

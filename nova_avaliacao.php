@@ -4,7 +4,6 @@ require_once 'php_assets/header.php';
 
 //EXIGE NOME DO AVALIADOR PARA REALIZAR O CADASTRO
 if ($_SESSION['nome']=="") {
-	require_once "php_assets/header.php";
 	?>
 	<script>
 		alert("Complete o seu cadastro de usuário antes de continuar!");
@@ -80,7 +79,6 @@ if ($_POST) {
 //die();
 ?>
 
-	<div class="container">
 		<div class="row col-md-6">
 			
 			<h3>Nova Avaliação</h3>
@@ -118,6 +116,5 @@ if ($_POST) {
 			</form>
 			
 		</div><!-- /.row -->
-	</div><!-- /.content-fluid -->
 
 	<?php 	require_once "php_assets/footer.php"; ?>
