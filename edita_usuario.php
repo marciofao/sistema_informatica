@@ -44,7 +44,7 @@ $data=$database->select('usuarios', "*",["cod" => $_SESSION["cod"]]);
 			<input type="text" class="form-control" placeholder="Nome completo" required="required" name="nome" value="<?php echo $data[0]['nome'] ?>" />
 			<input type="email" class="form-control" placeholder="email"  required="required" name="email" value="<?php echo $data[0]['email'] ?>"/>
 			<input type="text" class="form-control" placeholder="nome de usuario"  required="required" name="usuario" value="<?php echo $data[0]['usuario'] ?>"/>
-			<input type="passowrd" class="form-control" placeholder="senha"  required="required" name="senha" />
+			<input type="password" class="form-control" placeholder="senha"  required="required" name="senha" />
 			<input type="email" class="form-control" placeholder="email destino"  required="required" name="email_destino" value="<?php echo $data[0]['email'] ?>" />
 			<div class="checkbox">	<label >
 			<input type="checkbox" name="envia_copia" value="1" <?php if ($data[0]['envia_copia']==1){echo "checked='checked'";} ?>/>

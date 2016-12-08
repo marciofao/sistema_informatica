@@ -41,53 +41,66 @@ if ($_POST) {
 	
 	//$ul_cod contem o cod do ultimo registro adicionado
 
-//BUSCA AS PERGUNTAS E RESPOSTAS RECÉM INSERIDAS:	
-	$datas=$database->select('avaliacoes', "*", ["cod" => $_GET['c']]);
+//pega dados do usuário atual
+	$data=$database->select('usuarios', '*', ['cod' => $_SESSION["cod"]]);
+
+
+	function envia_email($email){
+	//BUSCA AS PERGUNTAS E RESPOSTAS RECÉM INSERIDAS:	
+		$datas=$database->select('avaliacoes', "*", ["cod" => $ul_cod]);
 
 //separa as perguntas das respostas
-	$dados=explode("}{", $datas[0]['respostas']); 
+		$dados=explode("}{", $datas[0]['respostas']); 
 
 //cria arrays
-	$perguntas = explode(",", $dados[0]);
-	$respostas = explode(",", $dados[1]);
+		$perguntas = explode(",", $dados[0]);
+		$respostas = explode(",", $dados[1]);
 
 //ENVIO DE EMAIL:
 
-	//pega dados do usuário atual
-	$data=$database->select('usuarios', '*', ['cod' => $_SESSION["cod"]]);
-	//MESSAGE TO ADMIN
+
 //die(var_dump($_SESSION));
 //	die(var_dump($data));
-	$headers = "From: {$_SESSION["nome"]} {$data['0']['email']}";
-	$headers  .="'MIME-Version: 1.0' \r\n";
-	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+		$headers = "From: {$_SESSION["nome"]} {$data['0']['email']}";
+		$headers  .="'MIME-Version: 1.0' \r\n";
+		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 	//echo $header;
 	//die();
-	$to = $data['0']['email_destino'];
-	$subject = "Avaliação Informática";
+		$to = $data['0']['email_destino'];
+		$subject = "Avaliação Informática";
 
-	$url = "http://m2studios.orgfree.com/outras/lbraille_tools/questionario/registro.php?c=".$ul_cod;
-	$body = "clique no link para visualizar e imprimir o questionário:\n\n<a href='".$url."'>".$url."</a>\n\n";
+		$url = "http://m2studios.orgfree.com/outras/lbraille_tools/questionario/registro.php?c=".$ul_cod;
+		$body = "clique no link para visualizar e imprimir o questionário:\n\n<a href='".$url."'>".$url."</a>\n\n";
 
 	//MONTA O RESTANTE DO EMAIL COM AS PERGUNTAS E RESPOSTAS
-	$body .="<ol>";
-	
-	$i=0;
-	foreach ($perguntas as $key => $p):
-		$body .="<li><b>".$p."</b><br/>".$respostas[$i]."</li>";
-	$i++;
-	endforeach 
-	$body .="</ol>";
-	
+		$body .="<ol>";
+
+		$i=0;
+		foreach ($perguntas as $key => $p):
+			$body .="<li><b>".$p."</b><br/>".$respostas[$i]."</li>";
+		$i++;
+		endforeach ;
+		$body .="</ol>";
 
 
-	if (mail($to, $subject, $body, $headers)) {
-		echo "<h1>Avaliação enviada</h1>";
 
-	} else {
-		echo "<h1>Houve um erro</h1>";
-		
+		if (mail($to, $subject, $body, $headers)) {
+			echo "<h1>Avaliação enviada</h1>";
+
+		} else {
+			echo "<h1>Houve um erro</h1>";
+
+		}
+	}// envia_email()
+
+	//EFETUA ENVIO DE EMAIL
+	envia_email($data[0]['email_destino']);
+
+	if ($data[0]['envia_copia']=='1') {
+		envia_email($data[0]['email']);
 	}
+
+
 	require_once "php_assets/footer.php";
 	die();
 	//header("location:inicio.php");

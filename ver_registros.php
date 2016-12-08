@@ -29,7 +29,7 @@ $datas=$database->select('avaliacoes', ["cod","nome", "data"], ["ORDER" => "data
 									<a href="registro.php?c=<?php echo $data['cod']; ?>"><?php 	echo $data['nome']; ?></a>
 								</td>
 								<td>
-									<?php 	echo $data['data']; ?>
+									<?php 	echo date_format(date_create($data['data']), 'd/m/Y'); ?>
 								</td>
 
 							</tr>

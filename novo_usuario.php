@@ -39,7 +39,7 @@ if ($_POST) {
 				<form action="	" class="form-group" method="post">
 					<input type="text" class="form-control" placeholder="nome de usuario" required="required" name="usuario" />
 					
-					<input type="passowrd" class="form-control" placeholder="senha"  required="required" name="senha" />
+					<input type="password" class="form-control" placeholder="senha"  required="required" name="senha" />
 					
 					<input type="submit" class="btn-md btn-primary form-control" value="cadastrar" />
 				</form><!-- /.form-group -->
