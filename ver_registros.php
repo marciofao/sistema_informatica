@@ -26,7 +26,7 @@ $datas=$database->select('avaliacoes', ["cod","nome", "data"], ["ORDER" => "data
 							<?php foreach ($datas as $data): ?>
 						<tr>
 								<td>
-									<a href="registro.php?c=<?php echo $data['cod']; ?>"><?php 	echo $data['nome']; ?></a>
+									<a target="_blank" href="registro.php?c=<?php echo $data['cod']; ?>"><?php 	echo $data['nome']; ?></a>
 								</td>
 								<td>
 									<?php 	echo date_format(date_create($data['data']), 'd/m/Y'); ?>
