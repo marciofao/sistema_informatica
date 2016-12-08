@@ -72,7 +72,7 @@ if ($_POST) {
 
 		$url = "http://m2studios.orgfree.com/outras/lbraille_tools/questionario/registro.php?c=".$ul_cod;
 		$body = "clique no link para visualizar e imprimir o questionário:\n\n";
-$body .=htmlentities("<a href='".$url."'>".$url."</a>\n\n");
+$body .=htmlentities($url."\n\n");
 	//MONTA O RESTANTE DO EMAIL COM AS PERGUNTAS E RESPOSTAS
 		$body .="<ol>";
 
