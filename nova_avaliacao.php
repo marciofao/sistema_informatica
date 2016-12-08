@@ -46,10 +46,10 @@ if ($_POST) {
 	$data=$database->select('usuarios', '*', ['cod' => $_SESSION["cod"]]);
 	
 	function envia_email($email, $ul_cod, $data, $datas){
-		
 
 
-		
+
+
 //separa as perguntas das respostas
 		$dados=explode("}{", $datas[0]['respostas']); 
 
@@ -102,7 +102,7 @@ if ($_POST) {
 	?>
 
 	<script>
-		alert("Usuário cadastrado!");
+		alert("Avaliação enviada!");
 		window.location.href = "inicio.php";
 	</script>
 
