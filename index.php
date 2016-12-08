@@ -45,6 +45,11 @@ if ($_POST) {
 	<meta name="description" content="curso de bootstrap 3">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<style>	
+		#freewha, frame, iframe{
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
@@ -56,7 +61,7 @@ if ($_POST) {
 						<input type="text" placeholder="usuario" class="form-control" required="required" name="usuario" />
 					</div><!-- /.row -->
 					<div class="row">
-						<input type="password" placeholder="usuario" class="form-control" required="required" name="senha" />
+						<input type="password" placeholder="senha" class="form-control" required="required" name="senha" />
 					</div><!-- /.row -->
 					<div class="row">
 						<input type="submit" class="btn-primary btn-md form-control" value="Entrar" />

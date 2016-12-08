@@ -30,7 +30,7 @@ if ($_POST) {
 
 	
 //die($_SESSION["nome"]);
-	$l=$database->insert('avaliacoes', [
+	$ul_cod=$database->insert('avaliacoes', [
 		'nome' => $_POST['nome'],
 		'data' => $_POST['data'],
 		'avaliador' => $_SESSION["nome"],
@@ -39,8 +39,17 @@ if ($_POST) {
 		#respostas = "pergunta,pergunta}{resposta,resposta"
 		//echo "sucesso!";
 	
-	//$l contem o cod do ultimo registro adicionado
-	
+	//$ul_cod contem o cod do ultimo registro adicionado
+
+//BUSCA AS PERGUNTAS E RESPOSTAS RECÉM INSERIDAS:	
+	$datas=$database->select('avaliacoes', "*", ["cod" => $_GET['c']]);
+
+//separa as perguntas das respostas
+	$dados=explode("}{", $datas[0]['respostas']); 
+
+//cria arrays
+	$perguntas = explode(",", $dados[0]);
+	$respostas = explode(",", $dados[1]);
 
 //ENVIO DE EMAIL:
 
@@ -51,14 +60,25 @@ if ($_POST) {
 //	die(var_dump($data));
 	$headers = "From: {$_SESSION["nome"]} {$data['0']['email']}";
 	$headers  .="'MIME-Version: 1.0' \r\n";
-    $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 	//echo $header;
 	//die();
 	$to = $data['0']['email_destino'];
 	$subject = "Avaliação Informática";
 
-	$body = "clique no link para visualizar o questionário:" . "\n\n" . 
-			 "<a href='http://louisbraille.org.br/questionario/registro.php?c=".$l ."'>http://louisbraille.org.br/questionario/registro.php?c=".$l ."</a>\n\n";
+	$url = "http://m2studios.orgfree.com/outras/lbraille_tools/questionario/registro.php?c=".$ul_cod;
+	$body = "clique no link para visualizar e imprimir o questionário:\n\n<a href='".$url."'>".$url."</a>\n\n";
+
+	//MONTA O RESTANTE DO EMAIL COM AS PERGUNTAS E RESPOSTAS
+	$body .="<ol>";
+	
+	$i=0;
+	foreach ($perguntas as $key => $p):
+		$body .="<li><b>".$p."</b><br/>".$respostas[$i]."</li>";
+	$i++;
+	endforeach 
+	$body .="</ol>";
+	
 
 
 	if (mail($to, $subject, $body, $headers)) {
@@ -79,42 +99,42 @@ if ($_POST) {
 //die();
 ?>
 
-		<div class="row col-md-6">
-			
-			<h3>Nova Avaliação</h3>
-			<form action="" method="post">
-				<label for="nome">Nome do Reabilitando</label>
-				<input id="nome" type="text" placeholder="Nome" class="form-control" required="required" name="nome" />
-				<label for="data">Data da avaliação</label>
-				<input id="data" type="date" placeholder="dd/mm/aaaa" value="<?php 	echo date('Y-m-d'); ?>"	 class="form-control" required="required" name="data" />
+<div class="row col-md-6">
 
-				<ol>
-					<?php 	
-					foreach ($datas as $data) {
-						?>
-						<li>
-							<label for="<?php 	echo $data['cod']; ?>"><?php 	echo $data['pergunta']; ?></label>
-							<textarea id="<?php 	echo $data['cod']; ?>" name="resposta[]" class="form-control" cols="5" rows="5"></textarea>
-							
+	<h3>Nova Avaliação</h3>
+	<form action="" method="post">
+		<label for="nome">Nome do Reabilitando</label>
+		<input id="nome" type="text" placeholder="Nome" class="form-control" required="required" name="nome" />
+		<label for="data">Data da avaliação</label>
+		<input id="data" type="date" placeholder="dd/mm/aaaa" value="<?php 	echo date('Y-m-d'); ?>"	 class="form-control" required="required" name="data" />
 
-						</li>
-						<?php
-					}
-					?>
+		<ol>
+			<?php 	
+			foreach ($datas as $data) {
+				?>
+				<li>
+					<label for="<?php 	echo $data['cod']; ?>"><?php 	echo $data['pergunta']; ?></label>
+					<textarea id="<?php 	echo $data['cod']; ?>" name="resposta[]" class="form-control" cols="5" rows="5"></textarea>
 
-				</ol>
-				<!-- demais perguntas -->
 
-				<div class="row">
+				</li>
+				<?php
+			}
+			?>
 
-					
-				</div><!-- /.row -->
-				<div class="row">
-					<input type="submit" class="btn-primary btn-md form-control" value="Enviar" />
+		</ol>
+		<!-- demais perguntas -->
 
-				</div><!-- /.row -->
-			</form>
-			
+		<div class="row">
+
+
 		</div><!-- /.row -->
+		<div class="row">
+			<input type="submit" class="btn-primary btn-md form-control" value="Enviar" />
 
-	<?php 	require_once "php_assets/footer.php"; ?>
+		</div><!-- /.row -->
+	</form>
+
+</div><!-- /.row -->
+
+<?php 	require_once "php_assets/footer.php"; ?>

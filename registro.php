@@ -16,6 +16,7 @@ $dados=explode("}{", $datas[0]['respostas']);
 $perguntas = explode(",", $dados[0]);
 $respostas = explode(",", $dados[1]);
 
+//die(var_dump($dados));
 ?>
 
 <style>	
@@ -46,14 +47,15 @@ $respostas = explode(",", $dados[1]);
 	<div class="row non-printable tac">
 		<a href="javascript:window.print()">Clique para imprimir</a>
 	</div><!-- /.row -->
-	<div class="row top">
+	<div class="row top printable">
 		<div class="col-md-3 col-xs-3">	
 			<img src="img/logocrv.png" alt="Logotipo CRV" height="100"/>
 		</div><!-- /.col-md-3 -->
 		<div class="col-md-9 col-xs-9">
+			Centro de Reabilitação Visual Louis Braille <br/>
 			Rua Andrade Neves, 3084 Pelotas, RS <br />	 
 			CEP: 96020-080 <br />	
-			aelbraille@hotmail.com <br />	
+			crvlouisbraille@gmail.com <br />	
 			CNPJ: 92236249/000119 <br />	
 
 		</div><!-- /.col-md-9 -->
@@ -90,7 +92,7 @@ $respostas = explode(",", $dados[1]);
 	<ol>
 		<?php 
 		$i=0;
-		foreach ($perguntas as $p => $value): ?>
+		foreach ($perguntas as $key => $p): ?>
 		<li>
 			<b>	<?php echo 	$p ?></b>
 			<br />	

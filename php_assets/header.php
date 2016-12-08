@@ -22,10 +22,15 @@ require_once 'php_assets/conecta.php';
 	<meta name="description" content="curso de bootstrap 3">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<style>	
+		#freewha, frame, iframe{
+			display: none;
+		}
+	</style>
 </head>
 <body>
 <div class="content">	
-<div class="navbar navbar-default">
+<div class="navbar navbar-default non-printable">
 		<div class="navbar-header">
 			<a href="#" class="navbar-brand ">
 				<?php echo $title ?>

@@ -15,7 +15,14 @@ if ($_POST) {
 			]);
 
 		//echo "sucesso!";
-		header("location:inicio.php");
+
+		?>
+		<script>
+		alert("Usuário cadastrado!");
+		window.location.href = "inicio.php";
+	</script>
+		<?php
+	//	header("location:inicio.php");
 	}
 
 
