@@ -73,9 +73,9 @@ if ($_POST) {
 
 
 		$body = "clique no link para visualizar e imprimir o questionário:<br>";
-		$body .=htmlentities($url."<br><br>");
+		$body .=htmlentities($url);
 
-		$body .= "<b>Questionário padrão de entrevista inicial</b><br>";
+		$body .= "<br><br><b>Questionário padrão de entrevista inicial</b><br>";
 		$body.="<b>Reabiliando: </b>".$datas[0]['nome']."<br>";
 		$body.="<b>Reabilitador: </b>".$datas[0]['avaliador']."<br>";
 	//MONTA O RESTANTE DO EMAIL COM AS PERGUNTAS E RESPOSTAS
