@@ -69,10 +69,15 @@ if ($_POST) {
 	//die();
 		$to = $data['0']['email_destino'];
 		$subject = "Avaliação Informática";
-
 		$url = "http://m2studios.orgfree.com/outras/lbraille_tools/questionario/registro.php?c=".$ul_cod;
+
+		
 		$body = "clique no link para visualizar e imprimir o questionário:\n\n";
-$body .=htmlentities($url."\n\n");
+		$body .=htmlentities($url."\n\n");
+
+		$body .= "<b>Questionário padrão de entrevista inicial</b>\n\n";
+		$body.="<b>Reabiliando: </b>".$datas[0]['nome']."\n\n";
+		$body.="<b>Reabilitador: </b>".$datas[0]['avaliador']."\n\n";
 	//MONTA O RESTANTE DO EMAIL COM AS PERGUNTAS E RESPOSTAS
 		$body .="<ol>";
 
