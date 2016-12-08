@@ -40,15 +40,16 @@ if ($_POST) {
 		//echo "sucesso!";
 	
 	//$ul_cod contem o cod do ultimo registro adicionado
-
+	//BUSCA AS PERGUNTAS E RESPOSTAS RECÉM INSERIDAS:	
+	$datas=$database->select('avaliacoes', "*", ["cod" => $ul_cod]);
 //pega dados do usuário atual
 	$data=$database->select('usuarios', '*', ['cod' => $_SESSION["cod"]]);
+	
+	function envia_email($email, $ul_cod, $data, $datas){
+		
 
 
-	function envia_email($email){
-	//BUSCA AS PERGUNTAS E RESPOSTAS RECÉM INSERIDAS:	
-		$datas=$database->select('avaliacoes', "*", ["cod" => $ul_cod]);
-
+		
 //separa as perguntas das respostas
 		$dados=explode("}{", $datas[0]['respostas']); 
 
@@ -84,25 +85,31 @@ if ($_POST) {
 
 
 
-		if (mail($to, $subject, $body, $headers)) {
-			echo "<h1>Avaliação enviada</h1>";
+		if (!mail($to, $subject, $body, $headers)) {
 
-		} else {
 			echo "<h1>Houve um erro</h1>";
-
+			die();
 		}
 	}// envia_email()
 
 	//EFETUA ENVIO DE EMAIL
-	envia_email($data[0]['email_destino']);
+	envia_email($data[0]['email_destino'], $ul_cod, $data, $datas);
 
 	if ($data[0]['envia_copia']=='1') {
-		envia_email($data[0]['email']);
+		envia_email($data[0]['email'], $ul_cod, $data, $datas);
 	}
 
+	?>
+
+	<script>
+		alert("Usuário cadastrado!");
+		window.location.href = "inicio.php";
+	</script>
+
+	<?php
 
 	require_once "php_assets/footer.php";
-	die();
+	
 	//header("location:inicio.php");
 }
 
