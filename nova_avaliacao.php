@@ -62,17 +62,17 @@ if ($_POST) {
 
 //die(var_dump($_SESSION));
 //	die(var_dump($data));
-		$headers = "From: {$_SESSION["nome"]} {$data['0']['email']}";
-		$headers  .="'MIME-Version: 1.0' \r\n";
-		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+		$headers = "From: {$_SESSION["nome"]} {$data['0']['email']}\r\n";
+		$headers  .="MIME-Version: 1.0 \r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 	//echo $header;
 	//die();
 		$to = $data['0']['email_destino'];
 		$subject = "Avaliação Informática";
 
 		$url = "http://m2studios.orgfree.com/outras/lbraille_tools/questionario/registro.php?c=".$ul_cod;
-		$body = "clique no link para visualizar e imprimir o questionário:\n\n<a href='".$url."'>".$url."</a>\n\n";
-
+		$body = "clique no link para visualizar e imprimir o questionário:\n\n";
+$body .=htmlentities("<a href='".$url."'>".$url."</a>\n\n");
 	//MONTA O RESTANTE DO EMAIL COM AS PERGUNTAS E RESPOSTAS
 		$body .="<ol>";
 
