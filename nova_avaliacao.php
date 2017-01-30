@@ -38,7 +38,7 @@ if ($_POST) {
 		]);
 		#respostas = "pergunta,pergunta}{resposta,resposta"
 		//echo "sucesso!";
-	
+	echo "<h1>Avaliação registrada com sucesso</h1>";
 	//$ul_cod contem o cod do ultimo registro adicionado
 	//BUSCA AS PERGUNTAS E RESPOSTAS RECÉM INSERIDAS:	
 	$datas=$database->select('avaliacoes', "*", ["cod" => $ul_cod]);
@@ -92,7 +92,7 @@ if ($_POST) {
 
 		if (!mail($to, $subject, $body, $headers)) {
 
-			echo "<h1>Houve um erro</h1>";
+			echo "<h1>Houve um erro, o email não pode ser enviado.</h1>";
 			die();
 		}
 	}// envia_email()

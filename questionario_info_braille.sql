@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Dez-2016 às 13:11
+-- Generation Time: 30-Jan-2017 às 12:01
 -- Versão do servidor: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `questionario_info_braille`
 --
+CREATE DATABASE IF NOT EXISTS `questionario_info_braille` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `questionario_info_braille`;
 
 -- --------------------------------------------------------
 
@@ -54,7 +56,14 @@ INSERT INTO `avaliacoes` (`cod`, `nome`, `respostas`, `data`, `avaliador`) VALUE
 (18, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
 (19, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
 (20, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(21, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', '');
+(21, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
+(22, 'Fernando', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-07', ''),
+(23, 'Teste', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-07', 'Márcio Lopes Fão'),
+(24, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
+(25, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
+(26, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
+(27, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
+(28, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão');
 
 -- --------------------------------------------------------
 
@@ -96,10 +105,10 @@ INSERT INTO `perguntas` (`cod`, `pergunta`, `ordem`) VALUES
 CREATE TABLE `usuarios` (
   `cod` bigint(20) UNSIGNED NOT NULL,
   `nome` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
+  `email` text NOT NULL,
   `senha` varchar(30) NOT NULL,
   `usuario` varchar(30) NOT NULL,
-  `email_destino` varchar(30) NOT NULL,
+  `email_destino` text NOT NULL,
   `envia_copia` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -108,7 +117,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`cod`, `nome`, `email`, `senha`, `usuario`, `email_destino`, `envia_copia`) VALUES
-(5, '', 'marcio.lopes.fao@gmail.com', 'admin', 'admin', 'marcio.lopes.fao@gmail.com', 0);
+(6, '', '', 'asd', 'asd', '', 0),
+(5, 'Márcio Lopes Fão', 'marcio.lopes.fao@gmail.com', '123', 'admin', 'marcio.lopes.fao@gmail.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -142,7 +152,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `avaliacoes`
 --
 ALTER TABLE `avaliacoes`
-  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `perguntas`
 --
@@ -152,7 +162,7 @@ ALTER TABLE `perguntas`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
