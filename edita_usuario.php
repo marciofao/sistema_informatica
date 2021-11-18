@@ -60,7 +60,7 @@ $data=$database->select('usuarios_info', "*",["cod" => $_SESSION["cod"]]);
 							<option value="tvd" <?php if ($data[0]['setor']=="tvd") echo "selected";?>>Tarefas da vida diária</option>
 						</select>
 			Email para envio de cópias:
-			<input type="email" class="form-control" placeholder="email destino" value="centroreabilitacaovisuallb@hotmail.com"   name="email_destino" value="<?php echo $data[0]['email_destino'] ?>" />
+			<input type="email" class="form-control" placeholder="email destino"  name="email_destino" value="<?php echo $data[0]['email_destino'] ?>" />
 			<div class="checkbox">	<label >
 			
 			<input type="checkbox" name="envia_copia" value="1" <?php if ($data[0]['envia_copia']==1){echo "checked='checked'";} ?>/>
