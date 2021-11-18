@@ -1,4 +1,10 @@
- Sistema básico de Cadastro e gerenciamento de questionários e atendimentos de setor de informática. Desenvolvido para ser 100% acessível para Pessoas com deficiência visual utilizando leitores de tela. Features:
+<p>
+    Sistema básico de Cadastro e gerenciamento de questionários e atendimentos de setor de informática. Desenvolvido para ser 100% acessível para Pessoas com deficiência visual utilizando leitores de tela.
+
+</p>
+<p>
+    Features:
+</p>
 
 <ul>
     <li>Gerenciamento de alunos</li>
