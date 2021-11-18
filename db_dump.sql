@@ -116,9 +116,8 @@ CREATE TABLE `usuarios` (
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`cod`, `nome`, `email`, `senha`, `usuario`, `email_destino`, `envia_copia`) VALUES
-(6, '', '', 'asd', 'asd', '', 0),
-(5, 'Márcio Lopes Fão', 'marcio.lopes.fao@gmail.com', '123', 'admin', 'marcio.lopes.fao@gmail.com', 1);
+INSERT INTO `usuarios` (`nome`, `email`, `senha`, `usuario`, `email_destino`, `envia_copia`) VALUES
+('Administrador', 'admin@admin.com', '123', 'admin', 'admin@admin.com', 1);
 
 --
 -- Indexes for dumped tables

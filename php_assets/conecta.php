@@ -2,21 +2,21 @@
 
 require_once "php_assets/env.php";
 
-if ($env=="dev") {
+if ($env=="dev") { //configurações Desenvolvimento
 	$user="root";
 	$pass="";
 	$dbname="questionario_info_braille";
-}else{
+}else{ //configurações produção
 	$user="491572";
-	$pass="qwerup0897";
+	$pass="491572";
 	$dbname="491572";
 }
 
 
-// Or if you just download the medoo.php into directory, and require it with the correct path.
+// inclui o framework de DB Medoo
 require_once 'medoo.php';
  
-// Initialize
+// Inicialização
 $database = new medoo([
     'database_type' => 'mysql',
     'database_name' => $dbname,

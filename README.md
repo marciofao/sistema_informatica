@@ -16,3 +16,20 @@
     <li>Backup do banco de dados</li>
     <li>Envio de cópia de registros por email</li>
 </ul>
+
+<p>
+    Tecnologias:
+</p>
+<ul>
+    <li>PHP</li>
+    <li>MySQL</li>
+</ul>
+
+<p>
+    Configuração:
+</p>
+<ul>
+    <li>Configuração de banco de dados: php_assets/conecta.php</li>
+    <li>Estrutura do banco de dados com exemplos no arquivo: db_dump.sql</li>
+    <li>Usuário e senha admin inicial: admin 123</li>
+</ul>
