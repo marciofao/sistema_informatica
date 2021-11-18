@@ -3,7 +3,11 @@
 $title = "Registros";
 require_once "php_assets/header.php";
 
-$datas=$database->select('pacientes_info', ["cod","nome", "data"], ["ORDER" => "data"]);
+$datas=$database->select('pacientes_info', ["cod","nome", "data"],[
+	"ativo" => 0,
+	"ORDER" => ["data" => "ASC"]
+
+]);
 
 ?>
 
@@ -13,7 +17,7 @@ $datas=$database->select('pacientes_info', ["cod","nome", "data"], ["ORDER" => "
 
 	<div class="panel panel-default">	
 		<div class="panel-heading">	
-			<h3 class="panel-title">Alunos registrados</h3>
+			<h3 class="panel-title">Alunos Excluidos Do sistema</h3>
 		</div><!-- /.panel-heading -->
 		<table class="table table-striped">	
 			<thead>	
@@ -35,6 +39,7 @@ $datas=$database->select('pacientes_info', ["cod","nome", "data"], ["ORDER" => "
 						<td>
 							<a class="btn btn-warning" href="edita_registro_atendimentos.php?c=<?php echo $data['cod']; ?>">Atendimentos</a>
 							<a class="btn btn-warning" href="edita_avaliacao.php?c=<?php echo $data['cod']; ?>">Questionario</a>
+							<a class="btn btn-default" href="restaurar_aluno.php?c=<?php echo $data['cod']; ?>">Restaurar</a>
 						</td>
 
 					</tr>

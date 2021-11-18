@@ -1,0 +1,12 @@
+[16-Sep-2018 21:19:25 UTC] PHP Fatal error:  Uncaught Exception: SQLSTATE[HY000] [1045] Access denied for user 'fxyjscku_user'@'localhost' (using password: YES) in /home/tyu78wer/public_html/sistema_informatica/medoo.php:150
+Stack trace:
+#0 /home/tyu78wer/public_html/sistema_informatica/php_assets/conecta.php(45): medoo->__construct(Array)
+#1 /home/tyu78wer/public_html/sistema_informatica/index.php(15): require_once('/home/tyu78wer/...')
+#2 {main}
+  thrown in /home/tyu78wer/public_html/sistema_informatica/medoo.php on line 150
+[16-Sep-2018 22:17:03 UTC] PHP Fatal error:  Uncaught Exception: SQLSTATE[HY000] [1045] Access denied for user 'fxyjscku_info'@'localhost' (using password: YES) in /home/tyu78wer/public_html/sistema_informatica/medoo.php:150
+Stack trace:
+#0 /home/tyu78wer/public_html/sistema_informatica/php_assets/conecta.php(45): medoo->__construct(Array)
+#1 /home/tyu78wer/public_html/sistema_informatica/index.php(15): require_once('/home/tyu78wer/...')
+#2 {main}
+  thrown in /home/tyu78wer/public_html/sistema_informatica/medoo.php on line 150

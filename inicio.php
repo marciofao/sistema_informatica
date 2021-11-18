@@ -1,19 +1,29 @@
 <?php 	
+
+//HABILITA BACKUPS
+//chmod ("backup.php", 0777);
+
+//encaminha direto para a lista de meus alunos
+header('location:todos_alunos.php?m=1');
 $title="Início";
 require_once 'php_assets/header.php';
 ?>
 
 
 
-<div class="">
+<div class="tac">
 
 	<h3>Acesso ao Sistema</h3>
 	<h4>Bem Vindo <?php echo 	$_SESSION['nome'] ?>!</h4>
 
+	<script>
+		window.location="todos_alunos.php?m=1";
+	</script>
 	<style>
 		.navbar{
 			display: none;
 		}
+
 	</style>
 
 	<div>
@@ -29,7 +39,10 @@ require_once 'php_assets/header.php';
 		<a href="novo_usuario.php" class="btn-primary btn-md form-control">Novo Usuário</a>
 	</div>
 	<div>
-		<a href="ver_registros.php" class="btn-primary btn-md form-control">Ver registros</a>
+		<a href="todos_alunos.php" class="btn-primary btn-md form-control">Ver registros</a>
+	</div>
+	<div>
+		<a href="php_assets/sair.php" class="btn-primary btn-md form-control">Sair</a>
 	</div>
 
 

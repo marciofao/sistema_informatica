@@ -9,10 +9,10 @@ require_once 'medoo.php';
 // Initialize
 $database = new medoo([
     'database_type' => 'mysql',
-    'database_name' => 'questionario_info_braille',
+    'database_name' => 'tyu78wer_informatica',
     'server' => 'localhost',
-    'username' => 'root',
-    'password' => '',
+    'username' => 'tyu78wer_user2',
+    'password' => 'asfdwf2fqv22v302nv03',
     'charset' => 'utf8'
 ]);
  

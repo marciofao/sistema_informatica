@@ -1,5 +1,5 @@
 <?php 	
-$title="Gerenciar Perguntas";
+$title="Edita Perguntas";
 require_once 'php_assets/header.php';
 
 
