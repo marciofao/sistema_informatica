@@ -3,7 +3,7 @@
 
 </p>
 <p>
-    Features:
+    Recursos:
 </p>
 
 <ul>
