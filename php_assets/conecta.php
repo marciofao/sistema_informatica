@@ -3,7 +3,7 @@
 require_once "php_assets/env.php";
 //incorpora a variavel env que define se está em ambiente de produção ou desenvolvimento
 // No servidor sempre carregar o arquivo env com a variavel trocada para "prod"
-// na maquina local deixar o mesmo arquivo com a variavel definida como "dev"
+// Na máquina local deixar o mesmo arquivo com a variavel definida como "dev"
 
 
 
@@ -22,7 +22,8 @@ if ($env=="prod") {
 	$user="user";
 	$pass="pass";
 	$dbname="dbname";
-	$url_serv="https://yoursite.org.br/sistema_informatica/"; //usar domínio e localização do sistema
+	//usar domínio e localização do sistema
+	$url_serv="https://yoursite.org.br/sistema_informatica/"; 
 	//usado para o envio de emails
 	$email_domain = "yoursite.org.br";
 	$email_user = "sistema";
