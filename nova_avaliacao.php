@@ -80,7 +80,7 @@ if ($_POST) {
 
 //die(var_dump($_SESSION));
 //die(var_dump($dados));
-		$headers = "From: Informática LB naoresponda@louisbraille.org.br\r\n";
+		$headers = "From: ".$email_user."@".$email_domain."\r\n";
 		$headers  .="MIME-Version: 1.0 \r\n";
 		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 	//echo $header;
@@ -120,8 +120,7 @@ if ($_POST) {
 
 	//EFETUA ENVIO DE EMAIL - SE CHECKBOX NAO ENVIAR EMAIL NAO ESTIVER MARCADO
 	if (!isset($_POST['nao_enviar'])) {
-		envia_email("aelbraille@gmail.com", $ul_cod, $data, $datas, $url_serv);
-		envia_email("centroreabilitacaovisuallb@hotmail.com", $ul_cod, $data, $datas, $url_serv);
+		
 		if ($data[0]['envia_copia']=='1') {
 			envia_email($data[0]['email'], $ul_cod, $data, $datas, $url_serv);
 		}

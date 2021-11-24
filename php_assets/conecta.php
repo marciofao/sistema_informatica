@@ -12,6 +12,9 @@ if ($env=="dev") {
 	$pass="";
 	$dbname="questionario_info_braille";
 	$url_serv="http://localhost/sites/lbraille_tools/questionario/";
+	//usado para o envio de emails
+	$email_domain = "localhost.com";
+	$email_user = "sistema";
 }
 
 
@@ -20,7 +23,11 @@ if ($env=="prod") {
 	$pass="pass";
 	$dbname="dbname";
 	$url_serv="https://yoursite.org.br/sistema_informatica/"; //usar domínio e localização do sistema
+	//usado para o envio de emails
+	$email_domain = "yoursite.org.br";
+	$email_user = "sistema";
 }
+
 
 
 
