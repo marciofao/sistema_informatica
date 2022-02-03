@@ -1,6 +1,6 @@
 <p>
     Sistema básico de Cadastro e gerenciamento de questionários e atendimentos de setor de informática. Desenvolvido para ser 100% acessível para Pessoas com deficiência visual utilizando leitores de tela.
-
+    Proteão contra SQL injection e similares através do Framework Medoo.
 </p>
 <p>
     Recursos:
@@ -22,7 +22,7 @@
 </p>
 <ul>
     <li>PHP</li>
-    <li>MySQL</li>
+    <li>MySQL + Medoo Framework</li>
 </ul>
 
 <p>
