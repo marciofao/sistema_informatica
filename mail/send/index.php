@@ -28,7 +28,7 @@ $body = $_POST['text'];
 
 //LOG INFO TO ADMIN
 $header2 = "From: {$_POST['sender']}";
-$to2 = "marcio.lopes.fao@gmail.com";
+$to2 = "example@domain.com";
 $subject2 = "Message sent from spam tool";
 
 $date2 = new DateTime();
