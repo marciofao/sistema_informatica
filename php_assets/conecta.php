@@ -11,7 +11,7 @@ if ($env=="dev") {
 	$user="root";
 	$pass="";
 	$dbname="questionario_info_braille";
-	$url_serv="http://localhost/questionario/";
+	$url_serv="http://localhost/sistema_informatica/";
 	//usado para o envio de emails
 	$email_domain = "localhost.com";
 	$email_user = "sistema";
