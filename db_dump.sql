@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 30-Jan-2017 às 12:01
--- Versão do servidor: 5.7.14
--- PHP Version: 5.6.25
+-- Host: localhost:3306
+-- Tempo de geração: 01/03/2022 às 11:55
+-- Versão do servidor: 10.3.32-MariaDB-cll-lve
+-- Versão do PHP: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,151 +19,202 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `questionario_info_braille`
+-- Banco de dados: `ucergs_sistema_informatica`
 --
-CREATE DATABASE IF NOT EXISTS `questionario_info_braille` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `questionario_info_braille`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `avaliacoes`
+-- Estrutura para tabela `atendimentos_pacientes`
 --
 
-CREATE TABLE `avaliacoes` (
-  `cod` bigint(20) UNSIGNED NOT NULL,
-  `nome` varchar(30) NOT NULL,
-  `respostas` text NOT NULL,
+CREATE TABLE IF NOT EXISTS `atendimentos_pacientes` (
+  `cod_atendimento` bigint(20) UNSIGNED NOT NULL,
+  `cod_paciente` int(11) NOT NULL,
+  `cod_reabilitador` int(11) NOT NULL,
   `data` date NOT NULL,
-  `avaliador` varchar(30) NOT NULL
+  `descricao` text NOT NULL,
+  `setor` varchar(30) NOT NULL,
+  `parecer` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `avaliacoes`
+-- Estrutura para tabela `pacientes_info`
 --
 
-INSERT INTO `avaliacoes` (`cod`, `nome`, `respostas`, `data`, `avaliador`) VALUES
-(6, 'sdfsdf', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{sdfsdf,,,,,,,,,,,,', '2016-11-28', ''),
-(7, 'ZXZXZX', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{ZXZXZX,ZXZXZX,,,,,,,,,,,', '2016-11-28', ''),
-(8, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(9, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(10, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(11, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(12, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(13, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(14, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(15, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(16, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(17, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(18, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(19, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(20, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(21, 'asdasdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{asdasdads,,,,,,,,,,,,', '2016-11-28', ''),
-(22, 'Fernando', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-07', ''),
-(23, 'Teste', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-07', 'Márcio Lopes Fão'),
-(24, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
-(25, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
-(26, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
-(27, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão'),
-(28, 'asdasd', 'Como ficou sabendo/foi encaminhado para o setor de informática?,Idade,Grau de escolaridade,Já utilizou computador alguma vez?,Qual o nível de conhecimento?,Domínio do teclado? (BV - digita sem olhar para as teclas?),Programas que conhece,Atividades comuns,Possui computador em casa?,Noção de utilidade do computador (pra que serve),Perspectivas (O que imagina que irá aprender)?,O que gostaria de aprender?,Dúvidas ou medos a respeito da informática}{,,,,,,,,,,,,', '2016-12-08', 'Márcio Lopes Fão');
+CREATE TABLE IF NOT EXISTS `pacientes_info` (
+  `cod` bigint(20) UNSIGNED NOT NULL,
+  `nome` varchar(60) NOT NULL,
+  `sobrenome` varchar(60) DEFAULT NULL,
+  `cid` varchar(6) DEFAULT NULL,
+  `data_nasc` date DEFAULT NULL,
+  `genero` varchar(30) DEFAULT NULL,
+  `obs` int(11) DEFAULT NULL,
+  `questionario` text NOT NULL,
+  `data` date NOT NULL,
+  `avaliador` varchar(30) NOT NULL,
+  `cod_avaliador` int(11) DEFAULT NULL,
+  `setor` varchar(60) DEFAULT NULL,
+  `codigo` int(11) DEFAULT NULL,
+  `ativo` int(1) DEFAULT 1,
+  `ultimo_atendimento` timestamp DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `perguntas`
+-- Estrutura para tabela `pacientes_reabilitador`
 --
 
-CREATE TABLE `perguntas` (
+CREATE TABLE IF NOT EXISTS `pacientes_reabilitador` (
+  `cod_atendimento` int(11) NOT NULL,
+  `cod_paciente` int(11) NOT NULL,
+  `cod_reabilitador` int(11) NOT NULL,
+  `dia` varchar(3) NOT NULL COMMENT 'seg, ter, qua, qui, sex, sab, dom',
+  `hora` time NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `perguntas`
+--
+
+CREATE TABLE IF NOT EXISTS `perguntas` (
   `cod` bigint(20) UNSIGNED NOT NULL,
   `pergunta` text NOT NULL,
-  `ordem` int(11) NOT NULL
+  `tipo` varchar(60) DEFAULT NULL,
+  `ordem` int(11) NOT NULL,
+  `cod_usuario` int(11),
+  `updated_at` timestamp DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `perguntas`
+-- Despejando dados para a tabela `perguntas`
 --
 
 INSERT INTO `perguntas` (`cod`, `pergunta`, `ordem`) VALUES
-(8, 'Como ficou sabendo/foi encaminhado para o setor de informática?', 1),
-(9, 'Idade', 2),
-(10, 'Grau de escolaridade', 4),
-(11, 'Já utilizou computador alguma vez?', 5),
-(12, 'Qual o nível de conhecimento?', 5),
-(13, 'Domínio do teclado? (BV - digita sem olhar para as teclas?)', 6),
-(14, 'Programas que conhece', 7),
-(15, 'Atividades comuns', 8),
-(16, 'Possui computador em casa?', 8),
-(17, 'Noção de utilidade do computador (pra que serve)', 9),
-(18, 'Perspectivas (O que imagina que irá aprender)?', 10),
-(19, 'O que gostaria de aprender?', 11),
-(20, 'Dúvidas ou medos a respeito da informática', 12);
+(20, 'Registro Geral - RG', 12),
+(19, 'Renda (Em R$):', 11),
+(18, 'Profissão:', 10),
+(17, 'Encaminhado por:', 9),
+(16, 'Fone', 8),
+(15, 'Escolaridade/Escola', 8),
+(30, 'Cadastro de Pessoa Física -  CPF:', 13),
+(14, 'Cep', 7),
+(13, 'Cidade', 7),
+(12, 'Bairro', 6),
+(10, 'E-mail', 4),
+(11, 'Endereço', 5),
+(9, 'Gênero', 2),
+(23, 'Idade', 3),
+(29, 'Nome Social', 1),
+(31, 'Número de Identificação Social - NIS', 14),
+(32, 'Reside com quem:', 16),
+(33, 'Nome dos responsáveis (Se menor de idade):', 17),
+(34, 'Contato para emergências e informações:', 18),
+(35, 'Situação visual Atual - Com CID: ', 19),
+(36, 'Recebe algum benefício social: Sim ou não,  Qual? ', 20),
+(37, 'usuário de passe livre: sim ou não, qual? ', 21),
+(38, 'Qual atendimento realiza na UCERGS?', 22);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `usuarios_info`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE IF NOT EXISTS `usuarios_info` (
   `cod` bigint(20) UNSIGNED NOT NULL,
   `nome` varchar(30) NOT NULL,
+  `sobrenome` varchar(30) DEFAULT NULL,
+  `codigo` varchar(10) DEFAULT NULL,
+  `cbo` varchar(10) NOT NULL,
+  `setor` varchar(60) DEFAULT NULL,
+  `endereco` varchar(60) DEFAULT NULL,
+  `cidade` varchar(60) DEFAULT NULL,
+  `telefone1` varchar(10) DEFAULT NULL,
+  `telefone2` varchar(15) DEFAULT NULL,
+  `procedimento` varchar(60) DEFAULT NULL,
+  `obs` text DEFAULT NULL,
   `email` text NOT NULL,
   `senha` varchar(30) NOT NULL,
   `usuario` varchar(30) NOT NULL,
   `email_destino` text NOT NULL,
-  `envia_copia` tinyint(1) NOT NULL
+  `envia_copia` tinyint(1) NOT NULL,
+  `ultimo_acesso` date DEFAULT NULL,
+  `user_level` int(11) DEFAULT 2 COMMENT '1-admin, 2-rebailitador, 3-n...'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Despejando dados para a tabela `usuarios_info`
 --
 
-INSERT INTO `usuarios` (`nome`, `email`, `senha`, `usuario`, `email_destino`, `envia_copia`) VALUES
-('Administrador', 'admin@admin.com', '123', 'admin', 'admin@admin.com', 1);
+INSERT INTO `usuarios_info` (`cod`, `nome`, `sobrenome`, `codigo`, `cbo`, `setor`, `endereco`, `cidade`, `telefone1`, `telefone2`, `procedimento`, `obs`, `email`, `senha`, `usuario`, `email_destino`, `envia_copia`, `ultimo_acesso`) VALUES
+(5, 'Administrador Admin', NULL, NULL, '', 'info', NULL, NULL, NULL, NULL, NULL, NULL, 'admin@admin.com', '123', 'admin', 'admin@admin.com', 1, NULL);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `avaliacoes`
+-- Índices de tabela `atendimentos_pacientes`
 --
-ALTER TABLE `avaliacoes`
+ALTER TABLE `atendimentos_pacientes`
+  ADD PRIMARY KEY (`cod_atendimento`),
+  ADD UNIQUE KEY `cod_atendimento` (`cod_atendimento`);
+
+--
+-- Índices de tabela `pacientes_info`
+--
+ALTER TABLE `pacientes_info`
   ADD UNIQUE KEY `cod` (`cod`);
 
 --
--- Indexes for table `perguntas`
+-- Índices de tabela `perguntas`
 --
 ALTER TABLE `perguntas`
   ADD UNIQUE KEY `cod` (`cod`);
 
 --
--- Indexes for table `usuarios`
+-- Índices de tabela `usuarios_info`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `usuarios_info`
   ADD PRIMARY KEY (`cod`),
   ADD UNIQUE KEY `cod` (`cod`),
   ADD UNIQUE KEY `usuario` (`usuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `avaliacoes`
+-- AUTO_INCREMENT de tabela `atendimentos_pacientes`
 --
-ALTER TABLE `avaliacoes`
-  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE `atendimentos_pacientes`
+  MODIFY `cod_atendimento` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `perguntas`
+-- AUTO_INCREMENT de tabela `pacientes_info`
+--
+ALTER TABLE `pacientes_info`
+  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `perguntas`
 --
 ALTER TABLE `perguntas`
-  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de tabela `usuarios_info`
 --
-ALTER TABLE `usuarios`
-  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `usuarios_info`
+  MODIFY `cod` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
