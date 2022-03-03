@@ -42,7 +42,7 @@ if ($_POST) {
 	
 //die($_SESSION["nome"]);
 	$ul_cod=$database->insert('pacientes_info', [
-		'nome' => $_POST['nome'],
+		'nome' => ucwords($_POST['nome']),  //primeiras letras em maiusculas
 		'data' => $_POST['data'],
 		'genero' => $_POST['genero'],
 		'data_nasc' => $_POST['data_nasc'],
@@ -158,7 +158,7 @@ else{
 			<form action="" method="post">
 				<label for="nome">Nome COMPLETO do Reabilitando</label>
 				<!--campo nome valida existência de espaços -->
-				<input id="nome" type="text" placeholder="Nome completo" pattern="^(.*\s+.*)+$" class="form-control" required="required" name="nome" />
+				<input id="nome" type="text" placeholder="Nome completo" pattern="^(.*\s+.*)+$" class="form-control" required="required" name="nome" oninvalid="this.setCustomValidity('Insira o nome completo por favor')" oninput="this.setCustomValidity('')"/>
 				<label for="data_nasc">Data Nascimento</label>
 				<input id="data_nasc" type="date" placeholder="" class="form-control" required="required" name="data_nasc" />
 				<label for="genero">Gênero:  </label> <br />
