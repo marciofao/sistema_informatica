@@ -152,8 +152,8 @@ CREATE TABLE IF NOT EXISTS `usuarios_info` (
 -- Despejando dados para a tabela `usuarios_info`
 --
 
-INSERT INTO `usuarios_info` (`cod`, `nome`, `sobrenome`, `codigo`, `cbo`, `setor`, `endereco`, `cidade`, `telefone1`, `telefone2`, `procedimento`, `obs`, `email`, `senha`, `usuario`, `email_destino`, `envia_copia`, `ultimo_acesso`) VALUES
-(5, 'Administrador Admin', NULL, NULL, '', 'info', NULL, NULL, NULL, NULL, NULL, NULL, 'admin@admin.com', '123', 'admin', 'admin@admin.com', 1, NULL);
+INSERT INTO `usuarios_info` (`cod`, `nome`, `sobrenome`, `codigo`, `cbo`, `setor`, `endereco`, `cidade`, `telefone1`, `telefone2`, `procedimento`, `obs`, `email`, `senha`, `usuario`, `email_destino`, `envia_copia`, `ultimo_acesso`, `user_level`) VALUES
+(5, 'Administrador Admin', NULL, NULL, '', 'info', NULL, NULL, NULL, NULL, NULL, NULL, 'admin@admin.com', '123', 'admin', 'admin@admin.com', 1, NULL, 1);
 
 --
 -- Índices para tabelas despejadas
