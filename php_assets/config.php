@@ -7,6 +7,12 @@ require_once "php_assets/env.php";
 
 require_once "php_assets/tools.php"; //carrega utilitarios
 
+define('NOME_INSTITUICAO', 'Nome Instiruicao');
+define('ENDERECO', 'Endereco da Instiruicao');
+define('CEP', '00000-000');
+define('EMAIL_CONTATO', 'email@example.com');
+define('CNPJ', '999999999');
+
 
 
 

@@ -11,11 +11,11 @@ if (!$_GET) {
 $datas=$database->select('pacientes_info', "*", ["cod" => $_GET['c']]);
 //die(var_dump($datas));
 //separa as perguntas das respostas
-$dados=explode("}{", $datas[0]['questionario']); 
-
+$questionario=json_decode($datas[0]['questionario'], true);
+//dump_die($questionario);
 //cria arrays
-$perguntas = explode("%*%", $dados[0]);
-$respostas = explode("%*%", $dados[1]);
+$perguntas = $questionario['perguntas'];
+$respostas = $questionario['respostas'];
 
 //die(var_dump($dados));
 ?>
@@ -82,67 +82,19 @@ $respostas = explode("%*%", $dados[1]);
 	</div><!-- /.row -->
 	<div class="row top printable">
 		<div class="col-md-3 col-xs-3">	
-			<img src="img/logocrv.png" alt="Logotipo CRV" height="100"/>
+			<img src="img/logo.png" alt="Logotipo CRV" height="100"/>
 		</div><!-- /.col-md-3 -->
 		<div class="col-md-9 col-xs-9">
-			Centro de Reabilitação Visual Louis Braille <br/>
-			Rua Andrade Neves, 3084 Pelotas, RS <br />	 
-			CEP: 96020-080 <br />	
-			crvlouisbraille@gmail.com <br />	
-			CNPJ: 92236249/000119 <br />	
+			<?php echo NOME_INSTITUICAO ?> <br/>
+			<?php echo ENDERECO ?> <br/>	 
+			<?php echo CEP ?> <br/>
+			<?php echo EMAIL_CONTATO ?> <br/>	
+			<?php echo CNPJ ?> <br/>	
 
 		</div><!-- /.col-md-9 -->
 
 	</div><!-- /.row -->
-	<div id="id" class="" >
-		<div class="row tac">
-			<div class="col-md-9 col-xs-9">
-				<b>Questionário padrão de entrevista inicial</b>
-			</div><!-- /.col-md-12 -->
-		</div><!-- /.row -->
-		<div class="row">
-			<div class="col-md-9 col-xs-9">
-				<b>Reabilitando: </b><?php echo 	$datas[0]['nome'] ?>
-			</div><!-- /.col-md-12 -->
-			<div class="col-md-9 col-xs-9">
-				<b>Gênero: </b>
-				<?php 	echo ucfirst($datas[0]['genero']); ?>
-			</div>
-			<div class="col-md-9 col-xs-9">
-				<?php 	$time=strtotime($datas[0]['data_nasc']) ?>
-				<b>Data Nascimento: </b><?php echo 	date('d/m/Y', $time); ?>
-			</div><!-- /.col-md-12 -->
-		</div><!-- /.row -->
-		<div class="row">
-			<div class="col-md-9 col-xs-9"><b>Reabilitador: </b><?php echo $datas[0]['avaliador'] ?></div><!-- /.col-md-12 -->
-		</div><!-- /.row -->
-		<div class="row">
-			<div class="col-md-9 col-xs-9"><b>Setor: </b>Informática</div><!-- /.col-md-12 -->
-		</div><!-- /.row -->
-		<div class="row">
-			<div class="col-md-9 col-xs-9">
-				<b>Data: </b>
-				<?php 
-				$timestamp = strtotime($datas[0]['data']);
-				echo date('d/m/Y', $timestamp);
-				?>
-			</div><!-- /.col-md-12 -->
-		</div><!-- /.row -->
-		
-	</div><!-- /#id -->
-	<ol>
-		<?php 
-		$i=0;
-		foreach ($perguntas as $key => $p): ?>
-		<li>
-			<b>	<?php echo 	$p ?></b>
-			<br />	
-			<?php echo 	$respostas[$i]; ?>
-		</li>
-		<?php 
-		$i++;
-		endforeach ?>
-	</ol>
+	<?php 	echo renderiza_respostas($perguntas, $respostas, $datas[0]); ?>
 	<br />	
 	<br />	
 	<div class="printable">
