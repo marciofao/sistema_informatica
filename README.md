@@ -1,6 +1,6 @@
 <p>
     Sistema básico de Cadastro e gerenciamento de questionários e atendimentos de setor de informática. Desenvolvido para ser 100% acessível para Pessoas com deficiência visual utilizando leitores de tela.
-    Proteão contra SQL injection e similares através do Framework Medoo.
+
 </p>
 <p>
     Recursos:
@@ -22,14 +22,14 @@
 </p>
 <ul>
     <li>PHP</li>
-    <li>MySQL + Medoo Framework</li>
+    <li>MySQL</li>
 </ul>
 
 <p>
     Configuração:
 </p>
 <ul>
-    <li>Configuração de banco de dados: php_assets/conecta.php</li>
+    <li>Configuração de banco de dados: php_assets/config.php</li>
     <li>Estrutura do banco de dados com exemplos no arquivo: db_dump.sql</li>
     <li>Usuário e senha admin inicial: admin 123</li>
 </ul>

@@ -5,13 +5,16 @@ require_once "php_assets/env.php";
 // No servidor sempre carregar o arquivo env com a variavel trocada para "prod"
 // Na máquina local deixar o mesmo arquivo com a variavel definida como "dev"
 
+require_once "php_assets/tools.php"; //carrega utilitarios
+
+
 
 
 if ($env=="dev") {
 	$user="root";
 	$pass="";
-	$dbname="questionario_info_braille";
-	$url_serv="http://localhost/sistema_informatica/";
+	$dbname="questionario_info";
+	$url_serv="http://localhost/sites/sistema_informatica/";
 	//usado para o envio de emails
 	$email_domain = "localhost.com";
 	$email_user = "sistema";
