@@ -4,7 +4,7 @@ $title = "Todos os Alunos";
 $editar=0;
 if ($_GET) {$title = "Meus Alunos"; $editar=1;}
 //usage: todos_alunos.php?m=1
-require_once "php_assets/conecta.php";
+require_once "php_assets/config.php";
 require_once "php_assets/verifica_sessao.php";
 
 if ($_GET) {

@@ -12,7 +12,7 @@ if ($_POST) {
 			alert("Já existe um usuário com o mesmo nome de acesso!");
 			window.location.href = "novo_usuario.php";
 		</script>
-		<?
+		<?php
 	}else{
 		$database->insert('usuarios_info', [
 			'usuario' => $_POST['usuario'],
@@ -27,7 +27,7 @@ if ($_POST) {
 			window.location.href = "inicio.php";
 		</script>
 		<?php
-	//	echo("<script>location.href = '"inicio.php");
+	
 	}
 
 

@@ -1,6 +1,6 @@
 <?php 
 $title=" Usuário";
-require_once 'php_assets/conecta.php';
+require_once 'php_assets/config.php';
 
 if ($_GET) {
 	

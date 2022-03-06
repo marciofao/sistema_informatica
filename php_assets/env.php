@@ -1,6 +1,6 @@
 <?php 
-$env="prod";
+$env="dev"; // dev - prod
 
-// dev - prod - m2 - fam
+
 
  ?>

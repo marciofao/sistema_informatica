@@ -3,7 +3,7 @@
 error_reporting(E_ALL & ~E_NOTICE);
 
 require_once "php_assets/verifica_sessao.php";
-require_once "php_assets/conecta.php";
+require_once "php_assets/config.php";
 //conecta em php-backup
 require_once 'php_assets/php-backup.php';
 

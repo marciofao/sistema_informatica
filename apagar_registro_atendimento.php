@@ -1,6 +1,6 @@
 <?php 	
 
-require_once 'php_assets/conecta.php';
+require_once 'php_assets/config.php';
 //die();
 if ($_GET) {
 	$database->delete('atendimentos_pacientes', ["cod_atendimento" => $_GET['c']]);

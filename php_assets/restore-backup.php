@@ -1,5 +1,5 @@
 <?php 
-require_once "php_assets/conecta.php";
+require_once "php_assets/config.php";
 
 /**
  * This file contains the Backup_Database class wich performs
