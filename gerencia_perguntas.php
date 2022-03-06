@@ -2,7 +2,13 @@
 $title="Edita Perguntas";
 require_once 'php_assets/header.php';
 
+?>
 
+<?php if($_SESSION["user_level"]!=1){
+	die('Sem permissão para acessar essa página');
+} ?>
+
+<?php
 $datas=$database->select('perguntas', "*", ["ORDER" => "ordem"]);
 
 //var_dump($datas);
@@ -25,7 +31,7 @@ $datas=$database->select('perguntas', "*", ["ORDER" => "ordem"]);
 							<td ></td>
 
 							<td class="col-md-2 col-sm-2 col-xs-2" rowspan="" colspan="2">
-								<a href="nova_pergunta.php" class="btn-primary btn-sm form-control">Adicionar Pergunta</a>
+								<a href="edita_pergunta.php?novo" class="btn-primary btn-sm form-control">Adicionar Pergunta</a>
 							</td>
 						</tr>
 
