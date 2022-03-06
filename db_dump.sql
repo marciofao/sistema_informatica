@@ -91,6 +91,8 @@ CREATE TABLE IF NOT EXISTS `perguntas` (
   `updated_at` timestamp DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+ALTER TABLE `perguntas` ADD `cod_questionario` INT NOT NULL DEFAULT '1' AFTER `ordem`, ADD `opcoes` TEXT NULL AFTER `cod_questionario`;
+
 --
 -- Despejando dados para a tabela `perguntas`
 --
