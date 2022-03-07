@@ -94,7 +94,7 @@ $respostas = $questionario['respostas'];
 		</div><!-- /.col-md-9 -->
 
 	</div><!-- /.row -->
-	<?php 	echo renderiza_respostas($perguntas, $respostas, $datas[0]); ?>
+	<?php 	echo renderiza_respostas($datas[0]); ?>
 	<br />	
 	<br />	
 	<div class="printable">

@@ -38,63 +38,43 @@ if ($_SESSION['nome'] == "") {
 
 if ($_POST) {
 
-	$perguntas = implode('%*%', $_POST['pergunta']);
-	$respostas = implode('%*%', $_POST['resposta']);
+	$paciente = $database->select('pacientes_info', "*", ["cod" => $_GET['c']]);
+	//dump_die($paciente[0]['questionario']);
+	$questionario = json_decode($paciente[0]['questionario'], true);
+	$perguntas = $questionario['perguntas'];
 
+	$respostas = array();
+	$i=0;
+	foreach($_POST['resposta'] as $r){
+		if($perguntas[$i]['tipo']=='checkbox'){
+			$respostas[]=explode(',',$r);
+		}else{
+			$respostas[]=$r;
+		}
+		$i++;
+	}
+	//dump_die($questionario);
+	$questionario['respostas']=$respostas;
 
-	//ADICIONA ASSINATURA DE EDIÇÃO
-	//	$perguntas = $perguntas."%*%Correção do questionário:";
-	//	$respostas = $respostas."%*%".$_SESSION['nome']." em ".date('d-m-Y');
-
-	//	echo(var_dump($perguntas));
-	//	echo(var_dump($respostas));
-	//	die();
-
-
-	//die($_SESSION["nome"]);
-	//die(var_dump($_POST));
-	//die( $perguntas.'}{'.$respostas);
-
-	$questionario = $perguntas . '}{' . $respostas;
+	//dump_die($questionario);
+	$questionario = json_encode($questionario);
 
 	$ul_cod = $database->update('pacientes_info', [
-		'nome' => $_POST['nome'],
-		'data' => $_POST['data'],
-		'data_nasc' => $_POST['data_nasc'],
-		'genero' => $_POST['genero'],
 		'questionario' =>  $questionario
 	], ["cod" => $_GET["c"]]);
 
-	//die(var_dump($questionario));		
-	//die(var_dump($database->error()));
-
-	//resulta em $perguntas]}{[$respostas
-
-	#respostas = "pergunta,pergunta}{resposta,resposta"
-	//echo "sucesso!";
 	echo "<h1>Avaliação registrada com sucesso</h1>";
-	//$ul_cod contem o cod do ultimo registro adicionado
-	//BUSCA AS PERGUNTAS E RESPOSTAS RECÉM INSERIDAS:	
+	
 	$ultimo_paciente = $database->select('pacientes_info', "*", ["cod" => $ul_cod]);
 	//pega dados do usuário atual
 	$data = $database->select('usuarios_info', '*', ['cod' => $_SESSION["cod"]]);
 
 	//die();
-	function envia_email($email, $ul_cod, $data, $datas, $url_serv)
-	{
+	function envia_email($email, $ul_cod, $reabilitando_data, $url_serv, $email_domain, $email_user) {
 
-
-
-
-		//separa as perguntas das respostas
-		$dados = explode("}{", $datas[0]['questionario']);
-
-		//cria arrays
-		$perguntas = explode("%*%", $dados[0]);
-		$respostas = explode("%*%", $dados[1]);
 
 		//ENVIO DE EMAIL:
-
+		
 
 		//die(var_dump($_SESSION));
 		//	die(var_dump($data));
@@ -112,20 +92,9 @@ if ($_POST) {
 		$body = "clique no link para visualizar e imprimir o questionário:<br>";
 		$body .= htmlentities($url);
 
-		$body .= "<br><br><b>Questionário padrão de entrevista inicial</b><br>";
-		$body .= "<b>Reabiliando: </b>" . $datas[0]['nome'] . "<br>";
-		$body .= "<b>Reabilitador: </b>" . $datas[0]['avaliador'] . "<br>";
-		//MONTA O RESTANTE DO EMAIL COM AS PERGUNTAS E RESPOSTAS
-		$body .= "<ol>";
+		$body .= renderiza_respostas($reabilitando_data);
 
-		$i = 0;
-		foreach ($perguntas as $key => $p) :
-			$body .= "<li><b>" . $p . "</b><br/>" . $respostas[$i] . "</li>";
-			$i++;
-		endforeach;
-		$body .= "</ol>";
-
-
+		//dump_die($body);
 
 		if (!mail($to, $subject, $body, $headers)) {
 
@@ -141,11 +110,11 @@ if ($_POST) {
 	if (!isset($_POST['nao_enviar'])) {
 
 		if ($_SESSION["email_destino"] != '') {
-			envia_email($_SESSION["email_destino"], $ul_cod, $data, $datas, $url_serv);
+			envia_email($_SESSION["email_destino"], $ul_cod, $datas[0], $url_serv, $email_domain, $email_user);
 		}
 
 		if ($data[0]['envia_copia'] == '1') {
-			envia_email($data[0]['email'], $ul_cod, $data, $datas, $url_serv);
+			envia_email($data[0]['email'], $ul_cod, $datas[0], $url_serv, $email_domain, $email_user);
 		}
 	}
 
@@ -178,12 +147,13 @@ if ($_POST) {
 <?php
 
 $datas = $database->select('pacientes_info', "*", ["cod" => $_GET['c']]);
-//separa as perguntas das respostas
-$dados = explode("}{", $datas[0]['questionario']);
 
+
+$questionario = json_decode($datas[0]['questionario'], true);
+//separa as perguntas das respostas
 //cria arrays
-$perguntas = explode("%*%", $dados[0]);
-$respostas = explode("%*%", $dados[1]);
+$perguntas = $questionario['perguntas'];
+$respostas = $questionario['respostas'];
 
 //die(var_dump($datas));
 
@@ -196,21 +166,10 @@ $respostas = explode("%*%", $dados[1]);
 		<div>
 			<a target="_blank" href="registro.php?c=<?php echo $datas[0]['cod']; ?>&print=1">Imprimir</a>
 		</div>
-		<label for="nome">Nome do Reabilitando</label>
-		<!--campo nome valida existência de espaços -->
-		<input id="nome" type="text" placeholder="Nome completo" value="<?php echo $datas[0]['nome']; ?>" pattern="^(.*\s+.*)+$" class="form-control" required="required" name="nome" />
-		<label for="data_nasc">Data Nascimento</label>
-		<input id="data_nasc" type="date" value="<?php echo $datas[0]['data_nasc']; ?>" class="form-control" required="required" name="data_nasc" />
-		<label for="genero">Gênero: </label> <br />
-		<input value="masculino" type="radio" required="required" name="genero" aria-label="Genêro Masculino" <?php if ($datas[0]['genero'] == "masculino") echo "checked"; ?> />Masculino
-		<input value="feminino" type="radio" name="genero" aria-label="Genêro Feminino" <?php if ($datas[0]['genero'] == "feminino") echo "checked"; ?> />Feminino
-		<br />
 		<label for="nao_enviar">
 			<input type="checkbox" name="nao_enviar" value="1" aria-label="Cadastrar aluno e questionário sem enviar email" />Editar aluno e questionário sem enviar email
 		</label>
 		<br />
-		<label for="data">Data da avaliação</label>
-		<input id="data" value="<?php echo $datas[0]['data']; ?>" type="date" placeholder="dd/mm/aaaa" value="<?php echo date('Y-m-d'); ?>" class="form-control" required="required" name="data" />
 
 		<input type="text" style="display: none" name="avaliador" value="<?php echo $datas[0]['avaliador'] ?>" />
 
@@ -219,17 +178,25 @@ $respostas = explode("%*%", $dados[1]);
 			$i = 0;
 
 			//die(var_dump($perguntas));
-			foreach ($perguntas as $data) {
+			foreach ($perguntas as $pp) {
+				$p = $pp['pergunta'];
 
+				if ($pp['tipo'] == 'title') {
+					?>
+					<h2><?php echo $p; ?></h2>
+                <textarea name="resposta[]" style="display: none;"></textarea>
+
+					<?php
+				} else {
 			?>
-				<li>
-					<label for="<?php echo $i; ?>"><?php echo $data; ?></label>
-					<input type="text" style="display: none" name="pergunta[]" value="<?php echo $data ?>" />
-					<textarea id="<?php echo $i; ?>" name="resposta[]" class="form-control" cols="5" rows="5"><?php echo $respostas[$i] ?></textarea>
-
-
-				</li>
+					<li>
+						<label for="<?php echo $i; ?>"><?php echo $p; ?></label>
+						<input type="text" style="display: none" name="pergunta[]" value="<?php echo $p ?>" />
+						<textarea id="<?php echo $i; ?>" name="resposta[]" class="form-control" cols="5" rows="5"><?php echo ($pp['tipo'] == 'checkbox')? implode(',', $respostas[$i]) : $respostas[$i] ?></textarea>
+					</li>
 			<?php
+				}
+
 				$i++;
 			}
 			?>

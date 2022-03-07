@@ -69,45 +69,8 @@ if ($_POST) {
 				<label for="data">Data da avaliação</label>
 				<input id="data" type="date" placeholder="dd/mm/aaaa" value="<?php echo date('Y-m-d'); ?>" class="form-control" required="required" name="data" />
 
-				<ol>
-					<?php
-					$i = 0;
-					foreach ($datas as $data) {
-					?>
-
-						<?php if ($data['tipo'] == 'title') : ?>
-							<h2><?php echo $data['pergunta']; ?></h2>
-							<textarea id="<?php echo $data['cod']; ?>" name="resposta[]" class="form-control" cols="5" rows="5" style="display: none;"></textarea>
-
-						<?php elseif ($data['tipo'] == 'checkbox') : ?>
-							<li>
-								<label for="<?php echo $data['cod']; ?>"><?php echo $data['pergunta']; ?></label> <br>
-								<?php foreach (explode(',', $data['opcoes']) as $opcao) : ?>
-									<input type="checkbox" name="resposta[<?php echo $i ?>][]" value=" <?php echo $opcao ?>"> <?php echo $opcao ?> <br>
-								<?php endforeach ?>
-							</li>
-						<?php elseif ($data['tipo'] == 'radio') : ?>
-							<li>
-								<label for="<?php echo $data['cod']; ?>"><?php echo $data['pergunta']; ?></label> <br>
-								<?php foreach (explode(',', $data['opcoes']) as $opcao) : ?>
-									<input type="radio" name="resposta[<?php echo $i ?>]" value=" <?php echo $opcao ?>"> <?php echo $opcao ?> <br>
-								<?php endforeach ?>
-							</li>
-						<?php else : ?>
-							<li>
-								<label for="<?php echo $data['cod']; ?>"><?php echo $data['pergunta']; ?></label>
-								<textarea id="<?php echo $data['cod']; ?>" name="resposta[<?php echo $i ?>]" class="form-control" cols="5" rows="5"></textarea>
-							</li>
-						<?php endif ?>
-
-
-					<?php
-					$i++;
-					}
-					?>
-
-				</ol>
-				<!-- demais perguntas -->
+				<?php render_form_edit($datas) ?>
+			
 
 				<div class="row">
 

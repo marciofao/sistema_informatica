@@ -8,7 +8,7 @@ function dump_die($a) {
     die;
 }
 
-function renderiza_respostas($perguntas, $respostas, $reabilitando_data) {
+function renderiza_respostas($reabilitando_data) {
     $body = "<br><br><b>Questionário padrão de entrevista inicial</b><br>";
     $body .= "<b>Gênero: </b>" . $reabilitando_data['genero'] . "<br>";
     $body .= "<b>Data Nascimento: </b>" . date('d/m/Y', strtotime($reabilitando_data['data_nasc'])) . "<br>";
@@ -22,7 +22,8 @@ function renderiza_respostas($perguntas, $respostas, $reabilitando_data) {
     $body .= "<ol>";
 
     $i = 0;
-
+    $perguntas = json_decode($reabilitando_data['questionario'], true)['perguntas'];
+    $respostas = json_decode($reabilitando_data['questionario'], true)['respostas'];
 
     foreach ($perguntas as $k => $p) :
         if ($p['tipo'] == 'title') {
@@ -43,4 +44,51 @@ function renderiza_respostas($perguntas, $respostas, $reabilitando_data) {
     $body .= "</ol>";
 
     return $body;
+}
+
+
+function render_form_edit($perguntas, $respostas=null) {
+    $datas = $perguntas;
+?>
+
+    <ol>
+        <?php
+        $i = 0;
+        foreach ($datas as $data) {
+        ?>
+
+            <?php if ($data['tipo'] == 'title') : ?>
+                <h2><?php echo $data['pergunta']; ?></h2>
+                <textarea id="<?php echo $data['cod']; ?>" name="resposta[]" style="display: none;"></textarea>
+
+            <?php elseif ($data['tipo'] == 'checkbox') : ?>
+                <li>
+                    <label for="<?php echo $data['cod']; ?>"><?php echo $data['pergunta']; ?></label> <br>
+                    <?php foreach (explode(',', $data['opcoes']) as $opcao) : ?>
+                        <input type="checkbox" name="resposta[<?php echo $i ?>][]" value=" <?php echo $opcao ?>"> <?php echo $opcao ?> <br>
+                    <?php endforeach ?>
+                </li>
+            <?php elseif ($data['tipo'] == 'radio') : ?>
+                <li>
+                    <label for="<?php echo $data['cod']; ?>"><?php echo $data['pergunta']; ?></label> <br>
+                    <?php foreach (explode(',', $data['opcoes']) as $opcao) : ?>
+                        <input type="radio" name="resposta[<?php echo $i ?>]" value=" <?php echo $opcao ?>"> <?php echo $opcao ?> <br>
+                    <?php endforeach ?>
+                </li>
+            <?php else : ?>
+                <li>
+                    <label for="<?php echo $data['cod']; ?>"><?php echo $data['pergunta']; ?></label>
+                    <textarea id="<?php echo $data['cod']; ?>" name="resposta[<?php echo $i ?>]" class="form-control" cols="5" rows="5"></textarea>
+                </li>
+            <?php endif ?>
+
+
+        <?php
+            $i++;
+        }
+        ?>
+
+    </ol>
+
+<?php
 }
