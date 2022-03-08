@@ -7,5 +7,7 @@ if ($_GET) {
 
 }
 
-header("location:gerencia_perguntas.php");
+isset($_GET['afv'])? $afv = '?afv' : $afv = '';
+
+header("location:gerencia_perguntas.php".$afv);
  ?>

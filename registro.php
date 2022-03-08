@@ -11,7 +11,10 @@ if (!$_GET) {
 $datas=$database->select('pacientes_info', "*", ["cod" => $_GET['c']]);
 //die(var_dump($datas));
 //separa as perguntas das respostas
-$questionario=json_decode($datas[0]['questionario'], true);
+if (isset($_GET['afv']))
+	$questionario = json_decode($datas[0]['afv'], true);
+else
+	$questionario = json_decode($datas[0]['questionario'], true);
 //dump_die($questionario);
 //cria arrays
 $perguntas = $questionario['perguntas'];
@@ -94,7 +97,11 @@ $respostas = $questionario['respostas'];
 		</div><!-- /.col-md-9 -->
 
 	</div><!-- /.row -->
+	<?php if (isset($_GET['afv'])): ?>
+	<?php 	echo renderiza_respostas($datas[0], true); ?>
+	<?php else: ?>
 	<?php 	echo renderiza_respostas($datas[0]); ?>
+	<?php endif ?>
 	<br />	
 	<br />	
 	<div class="printable">

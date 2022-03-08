@@ -54,10 +54,9 @@ $data = $database->select('usuarios_info', "*", ["cod" => $_SESSION["cod"]]);
 			<input type="password" class="form-control" placeholder="senha" required="required" name="senha" />
 			Setor: <br />
 			<select name="setor" id="setor" class="form-control">
-				<option value="info" <?php if ($data[0]['setor'] == "info") echo "selected"; ?>>Informática</option>
-				<option value="om" <?php if ($data[0]['setor'] == "om") echo "selected"; ?>>Orientação e Mobilidade</option>
-				<option value="psi" <?php if ($data[0]['setor'] == "psi") echo "selected"; ?>>Psicologia</option>
-				<option value="tvd" <?php if ($data[0]['setor'] == "tvd") echo "selected"; ?>>Tarefas da vida diária</option>
+					<?php foreach($setores_config as $s): ?>
+						<option value="<?php echo $s ?>"><?php echo $s ?></option>
+					<?php endforeach ?>
 			</select>
 			Email para envio de cópias:
 			<input type="email" class="form-control" placeholder="email destino" name="email_destino" value="<?php echo $data[0]['email_destino'] ?>" />

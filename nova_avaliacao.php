@@ -27,25 +27,28 @@ if ($_SESSION['nome'] == "") {
 	die();
 }
 
-
-$datas = $database->select('perguntas', ["pergunta","tipo"], ["ORDER" => "ordem"]);
-
+if (isset($_GET['afv']))
+	$perguntas = $database->select('perguntas', "*", ["cod_questionario"  => 2, "ORDER" => "ordem"]);
+else
+	$perguntas = $database->select('perguntas', "*", ["cod_questionario"  => 1, "ORDER" => "ordem"]);
 
 
 if ($_POST) {
 	require_once "nova_avaliacao_controller.php";
-
-} else {
-	//FAZ OUTRA BUSCA NO BANCO: GAMBIARRA POR CAUSA DOS INDES 'COD' E 'PERGUNTA' ABAIXO
-	$datas = $database->select('perguntas', "*", ["ORDER" => "ordem"]);
-	//var_dump($datas);
-	//die();
+}
 ?>
 
-	<div class="content">
-		<div class="row col-md-8">
-			<h3>Nova Avaliação</h3>
-			<form action="" method="post">
+<div class="content">
+	<div class="row col-md-8">
+		<h3>
+			<?php if (isset($_GET['afv'])) : ?>
+				Nova Avaliação Funcional da Visão
+			<?php else : ?>
+				Nova Avaliação Inicial
+			<?php endif ?>
+		</h3>
+		<form action="" method="post">
+			<?php if (!isset($_GET['afv'])) : ?>
 				<label for="nome">Nome COMPLETO do Reabilitando</label>
 				<!--campo nome valida existência de espaços -->
 				<input id="nome" type="text" placeholder="Nome completo" pattern="^(.*\s+.*)+$" class="form-control" required="required" name="nome" oninvalid="this.setCustomValidity('Insira o nome completo por favor')" oninput="this.setCustomValidity('')" />
@@ -60,37 +63,40 @@ if ($_POST) {
 				</label>
 				<br />
 				<select name="setor" id="setor" class="form-control">
-					<option value="info">Informática</option>
-					<option value="om">Orientação e Mobilidade</option>
-					<option value="psi">Psicologia</option>
-					<option value="tvd">Tarefas da vida diária</option>
-				</select>
-				<br />
-				<label for="data">Data da avaliação</label>
-				<input id="data" type="date" placeholder="dd/mm/aaaa" value="<?php echo date('Y-m-d'); ?>" class="form-control" required="required" name="data" />
+				<?php foreach ($setores_config as $s) : ?>
+					<option value="<?php echo $s ?>"><?php echo $s ?></option>
+				<?php endforeach ?>
+			</select>
+			<br />
+			<label for="data">Data da avaliação</label>
+			<input id="data" type="date" placeholder="dd/mm/aaaa" value="<?php echo date('Y-m-d'); ?>" class="form-control" required="required" name="data" />
 
-				<?php render_form_edit($datas) ?>
+			<?php endif ?>
+
 			
+			
+			<?php render_form_edit($perguntas) ?>
 
-				<div class="row">
+
+			<div class="row">
 
 
-				</div><!-- /.row -->
-		</div><!-- /.content -->
-		<div class="row">
-			<input type="submit" class="btn-primary btn-md form-control" value="Enviar" />
-
-		</div><!-- /.row -->
-		</form>
+			</div><!-- /.row -->
+	</div><!-- /.content -->
+	<div class="row">
+		<input type="submit" class="btn-primary btn-md form-control" value="Salvar" />
 
 	</div><!-- /.row -->
-	<div>
+	</form>
 
-	</div>
+</div><!-- /.row -->
+<div>
+
+</div>
 
 <?php
 
-}
+
 
 
 

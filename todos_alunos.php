@@ -47,7 +47,7 @@ if (isset($_POST['busca'])) {
 	if (isset($_GET['m'])) {
 
 		//Se receber get com parametro M, busca os pacientes associados ao rebilitador/avaliador da sessão atual a serem exibidos
-		$datas = $database->select('pacientes_info', ["cod", "nome", "data", "ultimo_atendimento"], [
+		$datas = $database->select('pacientes_info', ["cod", "nome", "data", "ultimo_atendimento", "afv"], [
 			"AND" => [
 				"cod_avaliador" => $_SESSION["cod"],
 				"ativo" => 1,
@@ -57,7 +57,7 @@ if (isset($_POST['busca'])) {
 		]);
 	} else {
 
-		$datas = $database->select('pacientes_info', ["cod", "nome", "data", "ultimo_atendimento"], ["ativo" => 1, "ORDER" => $order]);
+		$datas = $database->select('pacientes_info', ["cod", "nome", "data", "ultimo_atendimento", "afv"], ["ativo" => 1, "ORDER" => $order]);
 	}
 }
 
@@ -127,7 +127,14 @@ if (isset($_POST['busca'])) {
 								?>
 							</td>
 							<td class="col-md-1">
-								<a class="btn btn-warning" href="edita_avaliacao.php?c=<?php echo $data['cod']; ?>">Questionario</a>
+								<a class="btn btn-warning" href="edita_avaliacao.php?c=<?php echo $data['cod'] ?>">Questionario</a>
+							</td>
+							<td class="col-md-1">
+								<?php 
+								if($data['afv']) $href = 'edita_avaliacao.php?c='.$data["cod"].'&afv';
+								else $href = 'nova_avaliacao.php?c='.$data["cod"].'&afv';
+								?>
+								<a class="btn btn-warning" href="<?php echo $href ?>"> <?php echo $data['afv']? 'AFV' : 'Aplicar AFV' ?> </a>
 							</td>
 							<td class="col-md-1">
 								<a class="btn btn-danger" href="apagar_aluno.php?c=<?php echo $data['cod'];

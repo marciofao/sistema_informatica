@@ -124,12 +124,11 @@ require_once 'edita_registro_controller.php';
 				<div class="col-md-3 col-sm-3">
 					<label for="setor">Setor:</label>
 					<select name="setor" id="setor" class="form-control">
-						<option value="info" <?php if ($datas[0]['setor'] == "info") echo "selected"; ?>>Acolhimento</option>
-						<option value="om" <?php if ($datas[0]['setor'] == "om") echo "selected"; ?>>Serviço social</option>
-						<option value="psi" <?php if ($datas[0]['setor'] == "webradio") echo "selected"; ?>>Web Radio</option>
-						<option value="avd" <?php if ($datas[0]['setor'] == "biblioteca") echo "selected"; ?>>Biblioteca</option>
-						<option value="avd" <?php if ($datas[0]['setor'] == "Fisioterapia") echo "selected"; ?>>Fisioterapia</option>
 
+					<?php foreach($setores_config as $s): ?>
+						<option value="<?php echo $s ?>" <?php if ($datas[0]['setor'] == $s) echo "selected"; ?>><?php echo $s ?></option>
+					<?php endforeach ?>
+					
 					</select>
 				</div><!-- /.col-md-3 -->
 				<div class="col-md-5 col-sm-5">

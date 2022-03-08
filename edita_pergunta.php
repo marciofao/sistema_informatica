@@ -7,12 +7,18 @@ if ($_POST) {
 	require_once 'php_assets/verifica_sessao.php';
 	
 	if (isset($_GET['novo'])) { //inserção de pergunta
+		if(isset($_GET['afv']))
+		$cod_questionario = 2;
+		else
+		$cod_questionario = 1;
+
 		$database->insert('perguntas', [
 			"pergunta" => $_POST['pergunta'],
 			"ordem" => $_POST['ordem'],
 			"tipo" => $_POST['tipo'],
 			"opcoes" => $_POST['opcoes'],
-			"cod_usuario" => $_SESSION['cod']
+			"cod_usuario" => $_SESSION['cod'],
+			"cod_questionario" => $cod_questionario
 		]);
 		
 	} else { //atualização de pergunta
@@ -25,7 +31,11 @@ if ($_POST) {
 		], ["cod" => $_GET['c']]);
 	}
 
-	header("location:gerencia_perguntas.php");
+	$afv = '';
+	if(isset($_GET['afv']))
+	$afv = '?afv';
+
+	header("location:gerencia_perguntas.php".$afv);
 }
 
 $title = "Editar Pergunta";

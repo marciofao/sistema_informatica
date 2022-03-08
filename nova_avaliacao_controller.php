@@ -2,7 +2,7 @@
 //dump_die($_POST);
 //die(var_dump($datas));
 	//die(var_dump($_POST['resposta']));
-	$perguntas = $datas;
+
 	$respostas = $_POST['resposta'];
 
     $questionario = array();
@@ -13,8 +13,8 @@
 
 //dump_die($questionario);
 
-
-	//die($_SESSION["nome"]);
+if(!isset($_GET['afv'])){
+    //die($_SESSION["nome"]);
 	$ul_cod = $database->insert('pacientes_info', [
 		'nome' => ucwords($_POST['nome']),  //primeiras letras em maiusculas
 		'data' => $_POST['data'],
@@ -25,6 +25,22 @@
 		'cod_avaliador' => $_SESSION["cod"],
 		'questionario' => $questionario
 	]);
+}else{
+    //die($_SESSION["nome"]);
+	$ul_cod = $database->update('pacientes_info', [
+		'afv' => $questionario
+	], ["cod" => $_GET['c']]);
+
+    ?>
+    <script>
+        alert('Avaliação registrada com sucesso!')
+        window.location.href = "todos_alunos.php?m=1";
+    </script>
+    <?php
+    die();
+}
+
+	
 
 
 	//die(var_dump(error_get_last()));

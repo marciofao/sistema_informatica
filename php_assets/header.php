@@ -95,6 +95,9 @@ require_once 'php_assets/config.php';
 						<?php if ($_SESSION["user_level"] == 1) : ?>
 							<a href="gerencia_perguntas.php" class="btn btn-primary ">Editar Questionário</a>
 						<?php endif ?>
+						<?php if ($_SESSION["user_level"] == 1) : ?>
+							<a href="gerencia_perguntas.php?afv" class="btn btn-primary ">Editar AFV</a>
+						<?php endif ?>
 						<a href="edita_usuario.php" class="btn btn-primary">Usuário</a>
 						<a href="php_assets/sair.php" class="btn btn-primary ">Sair</a>
 					</div><!-- /.btn-group-lg btn-group -->

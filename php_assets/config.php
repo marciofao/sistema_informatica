@@ -55,4 +55,15 @@ $database = new medoo([
 	'charset' => 'utf8'
 	]);
 
+
+
+$setores_config = array(
+	"Acolhimento",
+	"Biblioteca",
+	"Fisioterapia",
+	"Serviço social",
+	"Web Radio",
+);
+
+
 	?>

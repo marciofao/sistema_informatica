@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `pacientes_info` (
   `ultimo_atendimento` timestamp DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+ALTER TABLE `pacientes_info` ADD `afv` TEXT NULL AFTER `questionario`;
 -- --------------------------------------------------------
 
 --
@@ -99,7 +100,6 @@ ALTER TABLE `perguntas` ADD `cod_questionario` INT NOT NULL DEFAULT '1' AFTER `o
 
 INSERT INTO `perguntas` (`cod`, `pergunta`, `ordem`) VALUES
 (20, 'Registro Geral - RG', 12),
-(19, 'Renda (Em R$):', 11),
 (18, 'Profissão:', 10),
 (17, 'Encaminhado por:', 9),
 (16, 'Fone', 8),
@@ -118,9 +118,7 @@ INSERT INTO `perguntas` (`cod`, `pergunta`, `ordem`) VALUES
 (33, 'Nome dos responsáveis (Se menor de idade):', 17),
 (34, 'Contato para emergências e informações:', 18),
 (35, 'Situação visual Atual - Com CID: ', 19),
-(36, 'Recebe algum benefício social: Sim ou não,  Qual? ', 20),
-(37, 'usuário de passe livre: sim ou não, qual? ', 21),
-(38, 'Qual atendimento realiza na UCERGS?', 22);
+(36, 'Recebe algum benefício social: Sim ou não,  Qual? ', 20);
 
 -- --------------------------------------------------------
 

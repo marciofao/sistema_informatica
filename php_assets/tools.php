@@ -8,11 +8,14 @@ function dump_die($a) {
     die;
 }
 
-function renderiza_respostas($reabilitando_data) {
-    $body = "<br><br><b>Questionário padrão de entrevista inicial</b><br>";
-    $body .= "<b>Gênero: </b>" . $reabilitando_data['genero'] . "<br>";
-    $body .= "<b>Data Nascimento: </b>" . date('d/m/Y', strtotime($reabilitando_data['data_nasc'])) . "<br>";
+function renderiza_respostas($reabilitando_data, $afv=false) {
+    $qname = "Questionário padrão de entrevista inicial";
+    if($afv)
+    $qname = "Avaliação Funcional da Visão";
+    $body = "<br><br><h1>".$qname."</h1><br>";
     $body .= "<b>Reabilitando: </b>" . $reabilitando_data['nome'] . "<br>";
+    $body .= "<b>Data Nascimento: </b>" . date('d/m/Y', strtotime($reabilitando_data['data_nasc'])) . "<br>";
+    $body .= "<b>Gênero: </b>" . $reabilitando_data['genero'] . "<br>";
     $body .= "<b>Reabilitador: </b>" . $reabilitando_data['avaliador'] . "<br>";
     $body .= "<b>Data Registro: </b>" . date('d/m/Y', strtotime($reabilitando_data['data'])) . "<br>";
 
@@ -22,8 +25,13 @@ function renderiza_respostas($reabilitando_data) {
     $body .= "<ol>";
 
     $i = 0;
+   if($afv){
+    $perguntas = json_decode($reabilitando_data['afv'], true)['perguntas'];
+    $respostas = json_decode($reabilitando_data['afv'], true)['respostas'];
+   }else{
     $perguntas = json_decode($reabilitando_data['questionario'], true)['perguntas'];
     $respostas = json_decode($reabilitando_data['questionario'], true)['respostas'];
+   }
 
     foreach ($perguntas as $k => $p) :
         if ($p['tipo'] == 'title') {
