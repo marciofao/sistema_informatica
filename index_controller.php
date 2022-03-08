@@ -8,9 +8,11 @@ if (isset($_SESSION["usuario"])) header("location:inicio.php?c=1");
 
 
 //verifica credenciais
-if ($_POST) {
+if ($_POST && $_POST['usuario'] && $_POST['senha']) {
 	$usuario=strtolower($_POST['usuario']);
 	require_once 'php_assets/config.php';
+
+	
 	//var_dump($_POST); die();
 
 	$data=$database->select('usuarios_info', '*', ["usuario"=>$usuario]);
