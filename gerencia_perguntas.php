@@ -1,5 +1,7 @@
 <?php
 $title = "Edita Perguntas";
+if(isset($_GET['afv']))
+$title = "Edita Avaliação Funcional da Visão";
 require_once 'php_assets/header.php';
 
 ?>

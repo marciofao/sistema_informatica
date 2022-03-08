@@ -87,7 +87,7 @@ $respostas = $questionario['respostas'];
 		<div class="col-md-3 col-xs-3">	
 			<img src="img/logo.png" alt="Logotipo CRV" height="100"/>
 		</div><!-- /.col-md-3 -->
-		<div class="col-md-9 col-xs-9">
+		<div class="col-md-6 col-xs-6">
 			<?php echo NOME_INSTITUICAO ?> <br/>
 			<?php echo ENDERECO ?> <br/>	 
 			<?php echo CEP ?> <br/>
