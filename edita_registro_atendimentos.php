@@ -95,7 +95,7 @@ th {
 
             <div class="cabecalho non-printable">
                 <div class="col-md-5 col-sm-5 col-xm-5">
-                    <label for="nome">Nome do Reabilitando:</label>
+                    <label for="nome">Nome do Usuário:</label>
                     <input id="nome" value="<?php echo $datas[0]['nome']; ?>" type="text" placeholder="Nome"
                         class="form-control" required="required" name="nome" />
                 </div><!-- /.col-md-3 -->
