@@ -13,10 +13,10 @@ function renderiza_respostas($reabilitando_data, $afv=false) {
     if($afv)
     $qname = "Avaliação Funcional da Visão";
     $body = "<br><br><h1>".$qname."</h1><br>";
-    $body .= "<b>Reabilitando: </b>" . $reabilitando_data['nome'] . "<br>";
+    $body .= "<b>Usuário: </b>" . $reabilitando_data['nome'] . "<br>";
     $body .= "<b>Data Nascimento: </b>" . date('d/m/Y', strtotime($reabilitando_data['data_nasc'])) . "<br>";
     $body .= "<b>Gênero: </b>" . $reabilitando_data['genero'] . "<br>";
-    $body .= "<b>Reabilitador: </b>" . $reabilitando_data['avaliador'] . "<br>";
+    $body .= "<b>Profissional: </b>" . $reabilitando_data['avaliador'] . "<br>";
     $body .= "<b>Data Registro: </b>" . date('d/m/Y', strtotime($reabilitando_data['data'])) . "<br>";
 
 

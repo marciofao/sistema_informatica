@@ -19,8 +19,8 @@ define('CNPJ', '999999999');
 if ($env=="dev") {
 	$user="root";
 	$pass="";
-	$dbname="questionario_info";
-	$url_serv="http://localhost/sites/sistema_informatica/";
+	$dbname="sistema_informatica";
+	$url_serv="http://localhost/sistema_informatica/";
 	//usado para o envio de emails
 	$email_domain = "localhost.com";
 	$email_user = "sistema";

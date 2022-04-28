@@ -1,11 +1,11 @@
 <?php
 $order = ["ultimo_atendimento" => "ASC"];
 $or = 'ultimo_atendimento';
-$title = "Todos os Alunos";
+$title = "Todos os usuários";
 
 //se receber por get o parametro m = meus alunos
 if ($_GET) {
-	$title = "Meus Alunos";
+	$title = "Meus usuários";
 }
 
 
@@ -72,7 +72,7 @@ if (isset($_POST['busca'])) {
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title" aria-label="Use tecla 4 para navegar por nomes">
-				Alunos registrados
+				Usuários registrados
 			</h3>
 
 		</div><!-- /.panel-heading -->

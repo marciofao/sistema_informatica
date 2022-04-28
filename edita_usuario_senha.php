@@ -41,12 +41,18 @@ if($_POST){
 }
 ?>
 
-<form method="post">
-<label for="login">Login de usuário:</label><br>
-<input name='login' required> <br>
+<title>Mudar senha de Profissional</title>
+
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/custom.css" />
+
+
+<form method="post" class="form-control simple-form">
+<label for="login">Login do profissional:</label><br>
+<input name='login' required class="form-control"> <br>
 <label for="senha">Nova Senha:</label><br>
-<input name='senha' type="password" required> <br>
-<input type="submit" value="Atualizar senha">
+<input name='senha' type="password" required class="form-control"> <br>
+<input type="submit" value="Atualizar senha" class="form-control btn-primary">
 </form>
 
 

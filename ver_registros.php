@@ -13,7 +13,7 @@ $datas=$database->select('pacientes_info', ["cod","nome", "data"], ["ORDER" => "
 
 	<div class="panel panel-default">	
 		<div class="panel-heading">	
-			<h3 class="panel-title">Alunos registrados</h3>
+			<h3 class="panel-title">Usuários registrados</h3>
 		</div><!-- /.panel-heading -->
 		<table class="table table-striped">	
 			<thead>	

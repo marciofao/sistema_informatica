@@ -1,7 +1,7 @@
 <?php 	
 
 $title = "Editar Turmas";
-if ($_GET) {$title = "Meus Alunos";}
+if ($_GET) {$title = "Meus usuários";}
 //usage: todos_alunos.php?m=1
 require_once "php_assets/header.php";
 require_once "salvar_turma.php";

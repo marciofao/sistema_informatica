@@ -19,16 +19,16 @@ O que fazer?
 		<a href="interativo_alunos.php?m=1" aria-label="Registrar Atividade" class="btn-primary btn-md form-control">Registrar ativiade</a>
 	</div>
 	<div>
-		<a href="nova_avaliacao.php" class="btn-primary btn-md form-control">Cadastrar Aluno</a>
+		<a href="nova_avaliacao.php" class="btn-primary btn-md form-control">Cadastrar Usuário</a>
 	</div>
 	<div>
 		<a href="interativo_alunos.php" class="btn-primary btn-md form-control">Ver registro de alunos</a>
 	</div>
 	<div>
-		<a href="edita_usuario.php" class="btn-primary btn-md form-control">Configurar Usuário</a>
+		<a href="edita_usuario.php" class="btn-primary btn-md form-control">Configurar Profissional</a>
 	</div>
 	<div>
-		<a href="novo_usuario.php" class="btn-primary btn-md form-control">Cadastrar novo Usuário</a>
+		<a href="novo_usuario.php" class="btn-primary btn-md form-control">Cadastrar novo Profissional</a>
 	</div>
 	
 	<div>

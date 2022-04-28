@@ -17,7 +17,7 @@ $datas=$database->select('pacientes_info', ["cod","nome", "data"],[
 
 	<div class="panel panel-default">	
 		<div class="panel-heading">	
-			<h3 class="panel-title">Alunos Excluidos Do sistema</h3>
+			<h3 class="panel-title">Usuários Excluídos Do sistema</h3>
 		</div><!-- /.panel-heading -->
 		<table class="table table-striped">	
 			<thead>	

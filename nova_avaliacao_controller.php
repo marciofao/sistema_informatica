@@ -109,9 +109,9 @@ if(!isset($_GET['afv'])){
 	<script>
 		<?php
 		if (isset($_POST['nao_enviar'])) {
-			echo 'alert("Questionário/Aluno registrado com sucesso!");';
+			echo 'alert("Questionário/Usuário registrado com sucesso!");';
 		} else {
-			echo 'alert("Questionário/Aluno registrado e enviado por email com sucesso!");';
+			echo 'alert("Questionário/Usuário registrado e enviado por email com sucesso!");';
 		}
 		?>
 

@@ -89,16 +89,16 @@ require_once 'php_assets/config.php';
 				</p>
 				<div class="btn-toolbar">
 					<div class="btn-group-lg btn-group">
-						<a href="nova_avaliacao.php" class="btn btn-primary">Novo Aluno</a>
-						<a href="todos_alunos.php?m=1" class="btn btn-primary ">Meus Alunos</a>
-						<a href="todos_alunos.php" class="btn btn-primary ">Todos Alunos</a>
+						<a href="nova_avaliacao.php" class="btn btn-primary">Novo usuário</a>
+						<a href="todos_alunos.php?m=1" class="btn btn-primary ">Meus usuários</a>
+						<a href="todos_alunos.php" class="btn btn-primary ">Todos usuários</a>
 						<?php if ($_SESSION["user_level"] == 1) : ?>
-							<a href="gerencia_perguntas.php" class="btn btn-primary ">Editar Questionário</a>
+							<a href="gerencia_perguntas.php" class="btn btn-primary ">Editar questionário</a>
 						<?php endif ?>
 						<?php if ($_SESSION["user_level"] == 1) : ?>
 							<a href="gerencia_perguntas.php?afv" class="btn btn-primary ">Editar AFV</a>
 						<?php endif ?>
-						<a href="edita_usuario.php" class="btn btn-primary">Usuário</a>
+						<a href="edita_usuario.php" class="btn btn-primary">Perfil</a>
 						<a href="php_assets/sair.php" class="btn btn-primary ">Sair</a>
 					</div><!-- /.btn-group-lg btn-group -->
 				</div><!-- /.btn-toolbar -->

@@ -1,5 +1,5 @@
 <?php 	
-$title = "Novo Usuário";
+$title = "Novo usuário";
 require_once 'php_assets/header.php';
 
 if ($_POST) {
@@ -23,7 +23,7 @@ if ($_POST) {
 
 		?>
 		<script>
-			alert("Usuário cadastrado!");
+			alert("Profissional cadastrado!");
 			window.location.href = "inicio.php";
 		</script>
 		<?php
@@ -39,7 +39,7 @@ if ($_POST) {
 	<div class="container">
 		<div class="row col-md-3">
 
-			<h3>Cadastrar novo usuário no Sistema</h3>
+			<h3>Cadastrar novo profissional no sistema</h3>
 
 			<form action="	" class="form-group" method="post">
 				<input type="text" class="form-control" placeholder="nome de usuario" required="required" name="usuario" />

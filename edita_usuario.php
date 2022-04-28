@@ -77,8 +77,8 @@ $data = $database->select('usuarios_info', "*", ["cod" => $_SESSION["cod"]]);
 		<!-- 		<a href="javascript: alert('contate o administrador')" class=" tac btn-md btn-danger form-control">Apagar Usuário</a> <br />  -->
 		<?php if ($_SESSION["user_level"] == 1) : //verifica se admin  
 		?>
-			<a href="novo_usuario.php" class="btn-md btn-warning form-control tac">Criar Novo Usuário</a> <br>
-			<a href="edita_usuario_senha.php" class="btn-md btn-warning form-control tac">Mudar senha de um usuário</a> <br>
+			<a href="novo_usuario.php" class="btn-md btn-warning form-control tac">Criar Novo Profissional</a> <br>
+			<a href="edita_usuario_senha.php" class="btn-md btn-warning form-control tac">Mudar senha de um profissional</a> <br>
 		<!-- 	<button onclick="tornar_admin()" class="btn-md btn-warning form-control tac">Tornar um usuário admin</button> <br>
 			<button onclick="remover_admin()" class="btn-md btn-warning form-control tac">Remover direitos admin de um usuário </button> <br>
  -->

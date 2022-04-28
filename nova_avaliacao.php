@@ -49,7 +49,7 @@ if ($_POST) {
 		</h3>
 		<form action="" method="post">
 			<?php if (!isset($_GET['afv'])) : ?>
-				<label for="nome">Nome COMPLETO do Reabilitando</label>
+				<label for="nome">Nome COMPLETO do Usuário</label>
 				<!--campo nome valida existência de espaços -->
 				<input id="nome" type="text" placeholder="Nome completo" pattern="^(.*\s+.*)+$" class="form-control" required="required" name="nome" oninvalid="this.setCustomValidity('Insira o nome completo por favor')" oninput="this.setCustomValidity('')" />
 				<label for="data_nasc">Data Nascimento</label>

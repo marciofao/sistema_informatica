@@ -1,8 +1,8 @@
 <?php 	
 
-$title = "Todos os Alunos";
+$title = "Todos os usuários";
 $editar=0;
-if ($_GET) {$title = "Meus Alunos"; $editar=1;}
+if ($_GET) {$title = "Meus usuários"; $editar=1;}
 //usage: todos_alunos.php?m=1
 require_once "php_assets/config.php";
 require_once "php_assets/verifica_sessao.php";
