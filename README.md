@@ -21,6 +21,7 @@
     Tecnologias:
 </p>
 <ul>
+    <li>Bootstrap</li>
     <li>PHP</li>
     <li>MySQL</li>
 </ul>
