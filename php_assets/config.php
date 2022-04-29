@@ -1,32 +1,27 @@
 <?php 
-
-require_once "php_assets/env.php";
-//incorpora a variavel env que define se está em ambiente de produção ou desenvolvimento
 // No servidor sempre carregar o arquivo env com a variavel trocada para "prod"
 // Na máquina local deixar o mesmo arquivo com a variavel definida como "dev"
+$env="dev"; // dev - prod
 
-require_once "php_assets/tools.php"; //carrega utilitarios
 
+//DADOS GERAIS DA INSTITUIÇÃO
 define('NOME_INSTITUICAO', 'Nome Instiruicao');
 define('ENDERECO', 'Endereco da Instiruicao');
 define('CEP', '00000-000');
 define('EMAIL_CONTATO', 'email@example.com');
 define('CNPJ', '999999999');
 
+//ARRAY DE SETORES
+$setores_config = array(
+	"Acolhimento",
+	"Biblioteca",
+	"Fisioterapia",
+	"Serviço social",
+	"Web Radio",
+);
 
 
-
-if ($env=="dev") {
-	$user="root";
-	$pass="";
-	$dbname="sistema_informatica";
-	$url_serv="http://localhost/sistema_informatica/";
-	//usado para o envio de emails
-	$email_domain = "localhost.com";
-	$email_user = "sistema";
-}
-
-
+//CONFIGURE AQUI AS VARIAVEIS DO AMBIENTE DE PRODUÇÃO
 if ($env=="prod") {
 	$user="user";
 	$pass="pass";
@@ -39,13 +34,30 @@ if ($env=="prod") {
 }
 
 
+//CONFIGURE AQUI AS VARIÁVEIS DO AMBIENTE DE DESENVOLVIMENTO
+if ($env=="dev") {
+	$user="root";
+	$pass="";
+	$dbname="sistema_informatica";
+	$url_serv="http://localhost/sistema_informatica/";
+	//usado para o envio de emails
+	$email_domain = "localhost.com";
+	$email_user = "sistema";
+}
 
 
-// Para facilitar o acesso ao banco de dados este projeto utiliza o framework Medoo 
+//---- NAO EDITAR DAQUI PARA BAIXO ----//
+
+
+//carrega utilitarios
+require_once "php_assets/tools.php"; 
+
+
+// Para facilitar o acesso ao banco de dados E segurança, este projeto utiliza o framework Medoo 
 // https://medoo.in/api/
 require_once 'medoo.php';
 
-// Initialize
+// Inicialização
 $database = new medoo([
 	'database_type' => 'mysql',
 	'database_name' => $dbname,
@@ -57,13 +69,6 @@ $database = new medoo([
 
 
 
-$setores_config = array(
-	"Acolhimento",
-	"Biblioteca",
-	"Fisioterapia",
-	"Serviço social",
-	"Web Radio",
-);
 
 
 	?>
