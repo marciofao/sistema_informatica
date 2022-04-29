@@ -154,7 +154,9 @@ if (isset($_POST['busca'])) {
 		</table>
 
 	</div><!-- /.panel panel-default -->
+	<?php if($_SESSION["user_level"] == 1): ?>
 	<a href="ver_registros_excluidos.php">Ver Excluídos</a>
+	<?php endif ?>
 
 
 
