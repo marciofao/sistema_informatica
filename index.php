@@ -31,7 +31,9 @@ require_once "index_controller.php";
 		<div class="row col-md-6 col-centered">
 			
 			<h3>Acesso ao Sistema</h3>
-			<form action="" method="post" <!-- onsubmit="getMessage() -->">
+		
+<!-- 			<form action="" method="post" onsubmit="getMessage()"  > -->			
+				<form action="" method="post"  >
 				<div class="row">
 					<input type="text" id="usuario" placeholder="usuario" class="form-control" required="required" name="usuario" />
 				</div><!-- /.row -->
