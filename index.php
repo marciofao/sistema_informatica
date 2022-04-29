@@ -11,8 +11,8 @@ require_once "index_controller.php";
 	<title>Acessar Sistema</title>
 	<meta name="description" content="Sistema Informatizado CRV">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<script src="js/bootstrap.js"></script>
 	<script src="js/script.js"></script>
 	<style>	
 	
