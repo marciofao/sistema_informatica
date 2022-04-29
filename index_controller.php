@@ -13,9 +13,15 @@ if ($_POST && $_POST['usuario'] && $_POST['senha']) {
 	require_once 'php_assets/config.php';
 
 	
-	//var_dump($_POST); die();
+	//usa email nome de usuario
 
-	$data=$database->select('usuarios_info', '*', ["usuario"=>$usuario]);
+	$data=$database->select('usuarios_info', '*', [
+		"OR" => [
+			"usuario"=>$usuario,
+			"email"=>$usuario
+			]
+		]
+	);
 	//var_dump($database); die();
 	//var_dump($data); die();
 
