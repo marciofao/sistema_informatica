@@ -12,12 +12,18 @@ if($_POST){
     if($_SESSION["usuario"]==$_POST['login']) die('Você não pode alterar sua propria senha aqui');
 
 
-    //verifica se existe
-    $data=$database->select('usuarios_info', '*', ["usuario"=>$_POST['login']])[0];
+    //verifica se existe pelo login ou email
+    $data=$database->select('usuarios_info', '*', [
+        "OR" => [
+            "usuario"=>$_POST['login'],
+            "email"=>$_POST['login']
+            ]
+    ])[0];
+
+
 
 	if ($data) { //se existir o usuario
 		
-	
 			$user_cod=$data['cod'];
     }else{
         die('Usuário '.$_POST['login'].' não encontrado!');
@@ -48,7 +54,7 @@ if($_POST){
 
 
 <form method="post" class="form-control simple-form">
-<label for="login">Login do profissional:</label><br>
+<label for="login">Login ou email do profissional:</label><br>
 <input name='login' required class="form-control"> <br>
 <label for="senha">Nova Senha:</label><br>
 <input name='senha' type="password" required class="form-control"> <br>
