@@ -4,7 +4,8 @@
 //chmod ("backup.php", 0777);
 
 //encaminha direto para a lista de meus alunos
-header('location:todos_alunos.php?m=1');
+//header('location:todos_alunos.php?m=1'); //enviar para "meus alunos"
+header('location:todos_alunos.php');  //todos os alunos
 $title="Início";
 require_once 'php_assets/header.php';
 ?>
@@ -16,9 +17,7 @@ require_once 'php_assets/header.php';
 	<h3>Acesso ao Sistema</h3>
 	<h4>Bem Vindo <?php echo 	$_SESSION['nome'] ?>!</h4>
 
-	<script>
-		window.location="todos_alunos.php?m=1";
-	</script>
+
 	<style>
 		.navbar{
 			display: none;

@@ -115,7 +115,7 @@ if(!isset($_GET['afv'])){
 		}
 		?>
 
-		window.location.href = "todos_alunos.php?m=1";
+		window.location.href = "todos_alunos.php";
 	</script>
 
 <?php
