@@ -65,6 +65,9 @@ require_once 'php_assets/config.php';
 			text-indent: -9999em;
 			width: 0;
 		}
+		.fr{
+			float: right !important;
+		}
 	</style>
 </head>
 
@@ -88,10 +91,10 @@ require_once 'php_assets/config.php';
 					<a href="interativo_home.php" tabindex="2">Abrir Navegação simplificada</a>
 				</p>
 				<div class="btn-toolbar">
-					<div class="btn-group-lg btn-group">
+					<div class="btn-group-lg btn-group fr">
 						<a href="nova_avaliacao.php" class="btn btn-primary">Novo usuário</a>
-						<a href="todos_alunos.php?m=1" class="btn btn-primary ">Meus usuários</a>
-						<a href="todos_alunos.php" class="btn btn-primary ">Todos usuários</a>
+						<!-- <a href="todos_alunos.php?m=1" class="btn btn-primary ">Meus usuários</a> -->
+						<a href="todos_alunos.php" class="btn btn-primary ">Usuários</a>
 						<?php if ($_SESSION["user_level"] == 1) : ?>
 							<a href="gerencia_perguntas.php" class="btn btn-primary ">Editar questionário</a>
 						<?php endif ?>
