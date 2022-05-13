@@ -5,6 +5,7 @@ $title = "Editar Atendimentos";
 require_once 'php_assets/header.php';
 require_once 'edita_registro_controller.php';
 
+$is_admin = $_SESSION["user_level"] == 1;
 ?>
 
 
@@ -64,6 +65,14 @@ form {
 th {
     text-align: center;
 }
+.descricao{
+    white-space: normal;
+}
+
+.print-table td{
+    padding: 5px;
+    border: 1px solid black
+}
 
 
 @media print {
@@ -96,25 +105,31 @@ th {
             <div class="cabecalho non-printable">
                 <div class="col-md-5 col-sm-5 col-xm-5">
                     <label for="nome">Nome do Usuário:</label>
+
                     <input id="nome" value="<?php echo $datas[0]['nome']; ?>" type="text" placeholder="Nome"
-                        class="form-control" required="required" name="nome" />
+                        class="form-control <?php echo $is_admin? '' : 'hidden' ?>" required="required" name="nome" />
+                        <?php echo $is_admin? '' : '<br>'.$datas[0]['nome'] ?>
                 </div><!-- /.col-md-3 -->
                 <div class="col-md-2 col-sm-2">
                     <label for="genero">Gênero: </label> <br />
-                    <input value="masculino" type="radio" required="required" name="genero"
-                        aria-label="Genêro Masculino"
-                        <?php if ($datas[0]['genero'] == "masculino") echo "checked"; ?> />Masculino
-                    <input value="feminino" type="radio" name="genero" aria-label="Genêro Feminino"
-                        <?php if ($datas[0]['genero'] == "feminino") echo "checked"; ?> />Feminino
+                    <div class="<?php echo $is_admin? '' : 'hidden' ?>">
+                        <input value="masculino" type="radio" required="required" name="genero"
+                            aria-label="Genêro Masculino" 
+                            <?php if ($datas[0]['genero'] == "masculino") echo "checked"; ?> />Masculino <br>
+                        <input value="feminino" type="radio" name="genero" aria-label="Genêro Feminino"
+                            <?php if ($datas[0]['genero'] == "feminino") echo "checked"; ?> />Feminino
+                    </div>
+                    <?php echo $is_admin? '' : ucfirst($datas[0]['genero']) ?>
                 </div><!-- /.col-md-3 -->
 
                 <div class="col-md-3 col-sm-3">
                     <label for="data_nascimento">Data Nascimento:</label>
-                    <input type="date" name="data_nascimento" class="form-control"
+                    <input type="date" name="data_nascimento" class="form-control <?php echo $is_admin? '' : 'hidden' ?>"
                         aria-label="setas cima baixo muda valor" value="<?php echo $datas[0]['data_nasc'] ?>" />
-
+                        <?php echo $is_admin? '' : '<br>'.date('d/m/Y', strtotime($datas[0]['data_nasc'])) ?>
+                        
                 </div><!-- /.col-md-3 -->
-                <div class="col-md-2 col-sm-2">
+                <div class="col-md-2 col-sm-2 hidden">
                     <label for="cid">CID:</label>
 
                     <input id="cid" value="<?php echo $datas[0]['cid']; ?>" type="text" placeholder="H00.00"
@@ -126,9 +141,10 @@ th {
 
                     <label for="codigo">Código:</label>
                     <input id="codigo" value="<?php echo $datas[0]['codigo']; ?>" type="text" placeholder="000000"
-                        class="form-control" name="codigo" />
+                        class="form-control <?php echo $is_admin? '' : 'hidden' ?>" name="codigo" />
+                        <?php echo $is_admin? '' : '<br>'.$datas[0]['codigo'] ?>
                 </div><!-- /.col-md-2 -->
-                <div class="col-md-3 col-sm-3">
+                <div class="col-md-3 col-sm-3 hidden">
                     <label for="setor">Setor:</label>
                     <select name="setor" id="setor" class="form-control">
 
@@ -139,7 +155,7 @@ th {
 
                     </select>
                 </div><!-- /.col-md-3 -->
-                <div class="col-md-5 col-sm-5">
+                <div class="col-md-5 col-sm-5 hidden">
                     <label for="avaliador">Profissional:</label>
                     <?php
 					//PEGA LISTA DE REABILITADOR/AVALIADOR DO BANCO DE DADOS
@@ -167,7 +183,7 @@ th {
 
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 fr">
                     <div class="row"> </div>
                     <input type="submit" value="Salvar" class="btn-primary btn-md non-printable form-control ">
                 </div>
@@ -175,46 +191,48 @@ th {
 
 
             </div><!-- /.cabecalho non-printable -->
-            <table class="printable table-responsive">
+            <table class="printable table-responsive print-table">
                 <tr>
                     <td colspan="2">Nome do Reablitando:</td>
                     <td>Gênero:</td>
                     <td>Data Nasc.:</td>
-                    <td>CID:</td>
+                   <!--  <td>CID:</td> -->
 
                 </tr>
                 <tr>
                     <td colspan="2"><?php echo $datas[0]['nome']; ?></td>
                     <td><?php echo ucfirst($datas[0]['genero']); ?></td>
                     <td><?php echo date('d/m/Y', strtotime($datas[0]['data_nasc'])); ?></td>
-                    <td><?php echo $datas[0]['cid']; ?></td>
+                   <!--  <td><?php echo $datas[0]['cid']; ?></td> -->
 
                 </tr>
                 <tr>
                     <td>Código</td>
-                    <td>Setor</td>
+                   <!--  <td>Setor</td> -->
                     <td colspan="3">Reabilitador</td>
 
                 </tr>
                 <tr>
                     <td><?php echo $datas[0]['codigo']; ?></td>
-                    <td>
+                    <!-- <td>
                         <?php
 						if ($datas[0]['setor'] == "info") echo "Informática";
 						if ($datas[0]['setor'] == "om") echo "Orientação e Mobilidade";
 						if ($datas[0]['setor'] == "psi") echo "Psicologia";
 						if ($datas[0]['setor'] == "avd") echo "Atividades da vida diária";
 						?>
-                    </td>
-                    <td colspan="3"><?php echo $datas[0]['avaliador']; ?></td>
+                    </td> -->
+                   <!--  <td colspan="3"><?php echo $datas[0]['avaliador']; ?></td> -->
+                   <td colspan="3"><?php echo $_SESSION["nome"]; ?></td>
 
+                    
                 </tr>
             </table>
             <table class="table table-striped table-responsive">
                 <thead>
                     <tr>
                         <th>Data</th>
-                        <th>Atividade / Observação</th>
+                        <th>Atividade / Evolução</th>
                         <th>Parecer</th>
                         <th> </th>
                     </tr>
@@ -286,24 +304,25 @@ th {
                             </td>
                             <td>
                                 <select name="atividade" id="atividade" class="form-control non-printable"
-                                    style="width: 50%;float: left;">
+                                    style="width: 100%;float: left;">
                                     <option value="" class="form-control">Selecione a atividade... tab enter salva como
                                         concluido sem observação</option>
                                     <?php
 									$atividades = array(
+                                        "Atividade da Vida Diária",
 										"Biblioteca",
-										"Web Radio",
-										"Tecnologia Assistiva",
-										"Música",
-										"Braille",
-										"Orientação e Mobilidade",
-										"Atividade da Vida Diária",
-										"Psicologia",
-										"Serviço Social",
-										"Estimulação Precoce",
+                                        "Braille",
 										"Coral",
-										"Teatro",
-										"Outro"
+                                        "Estimulação Precoce",
+                                        "Grupo de convivência",
+										"Música",
+                                        "Orientação e Mobilidade",
+										"Outro",
+                                        "Psicologia",
+										"Serviço Social",
+                                        "Teatro",
+                                        "Tecnologia Assistiva", 
+                                        "Web Radio"
 									);
 									foreach ($atividades as $key => $value) {
 										echo " \n "; //quebra de linha
@@ -313,8 +332,9 @@ th {
 
 									?>
                                 </select>
-                                <input type="text" name="obs" placeholder="Observação" id="obs"
-                                    class="form-control non-printable" style="width: 50%;" />
+                              <!--   <input type="text" name="obs" placeholder="Observação" id="obs"
+                                    class="form-control non-printable" style="width: 50%;" /> -->
+                                    <textarea name="obs"  class="form-control non-printable" id="obs" cols="30" rows="5" style="width: 100%;"></textarea>
 
                             </td>
                             <td>
