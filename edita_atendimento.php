@@ -43,8 +43,9 @@ $data=$database->select('atendimentos_pacientes', '*', ["cod_atendimento"=>$cod]
 <form method="post" class="simple-form form-control">
     <label for="data">Data:</label> <br>
     <input name="data" type="date" required value="<?php echo $atendimento['data'] ?>" class="form-control"> <br>
-    <label for="desricao">Descrição:</label> <br>
-    <input name="descricao" required value="<?php echo $atendimento['descricao'] ?>" class="form-control"> <br>
+    <label for="desricao">Evolução:</label> <br>
+   <!--  <input name="descricao" required value="" class="form-control"> <br> -->
+   <textarea name="descricao" class="form-control" id="" cols="30" rows="10"><?php echo $atendimento['descricao'] ?></textarea>
     <label for="parecer">Parecer:</label> <br>
     <select name="parecer" class="form-control">
         <option value="1" <?php echo $atendimento['parecer']==1? 'selected' : '' ?>>Concluído</option>
