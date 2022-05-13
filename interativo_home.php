@@ -27,9 +27,11 @@ O que fazer?
 	<div>
 		<a href="edita_usuario.php" class="btn-primary btn-md form-control">Configurar Profissional</a>
 	</div>
+	<?php if($_SESSION["user_level"] == 1): ?>
 	<div>
 		<a href="novo_usuario.php" class="btn-primary btn-md form-control">Cadastrar novo Profissional</a>
 	</div>
+	<?php endif ?>
 	
 	<div>
 		<a href="php_assets/sair.php" class="btn-primary btn-md form-control">Sair</a>
