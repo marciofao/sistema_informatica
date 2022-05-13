@@ -232,6 +232,7 @@ th {
                 <thead>
                     <tr>
                         <th>Data</th>
+                        <th class="printable">Profissional</th>
                         <th>Atividade / Evolução</th>
                         <th>Parecer</th>
                         <th> </th>
@@ -247,6 +248,15 @@ th {
 
                             <?php echo date('d/m/Y', strtotime($data['data'])) ?>
 
+                        </td>
+                        <td class="printable">
+                        <?php 
+                        foreach ($avaliador as $av) :
+							if ($av['nome'] != '') { //se nome for vazio, não imprime este option
+					         echo ($data['cod_reabilitador'] == $av['cod'] ? $av['nome'] : '');
+							} 
+						endforeach
+                        ?>
                         </td>
                         <td class="descricao">
                             <?php echo $data['descricao'] ?>
