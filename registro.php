@@ -85,7 +85,7 @@ $respostas = $questionario['respostas'];
 	</div><!-- /.row -->
 	<div class="row top printable">
 		<div class="col-md-3 col-xs-3">	
-			<img src="img/logo.png" alt="Logotipo CRV" height="100"/>
+			<img src="img/logo.png" alt="Logotipo" height="100"/>
 		</div><!-- /.col-md-3 -->
 		<div class="col-md-6 col-xs-6">
 			<?php echo NOME_INSTITUICAO ?> <br/>
