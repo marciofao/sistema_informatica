@@ -13,11 +13,18 @@ define('CNPJ', '999999999');
 
 //ARRAY DE SETORES
 $setores_config = array(
+	
 	"Acolhimento",
-	"Biblioteca",
+	"AVD",
+	"Braille",
+	"EP",
 	"Fisioterapia",
+	"Informática",
+	"Música",
+	"Psicologia",
 	"Serviço social",
-	"Web Radio",
+	"Outro"
+
 );
 
 
