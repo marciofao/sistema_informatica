@@ -55,7 +55,7 @@ $data = $database->select('usuarios_info', "*", ["cod" => $_SESSION["cod"]]);
 			Setor: <br />
 			<select name="setor" id="setor" class="form-control">
 					<?php foreach($setores_config as $s): ?>
-						<option value="<?php echo $s ?>"><?php echo $s ?></option>
+						<option value="<?php echo $s ?>" <?php echo $data[0]['setor']==$s? 'selected' : '' ?> ><?php echo $s ?></option>
 					<?php endforeach ?>
 			</select>
 			Email para envio de cópias:
