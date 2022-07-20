@@ -286,7 +286,7 @@ th {
 
                         </td>
                         <td style="display: flex; justify-content: space-evenly">
-                            <?php if($_SESSION["user_level"] == 1): ?>
+                            <?php // if($_SESSION["user_level"] == 1): ?>
                             <button onclick="edita(<?php echo $cod = $data['cod_atendimento'] ?>)" type="button"
                                 class=" non-printable" aria-label="Editar atividade">
                                 <span aria-hidden="true">&#x270E;</span>
@@ -296,7 +296,7 @@ th {
                                 type="button" class=" non-printable" aria-label="Excluir atividade">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <?php endif ?>
+                            <?php // endif ?>
                            
 
                         </td>
@@ -324,15 +324,16 @@ th {
                                         "Braille",
 										"Coral",
                                         "Estimulação Precoce",
+                                        "Fisioterapia",
                                         "Grupo de convivência",
 										"Música",
                                         "Orientação e Mobilidade",
-										"Outro",
                                         "Psicologia",
 										"Serviço Social",
                                         "Teatro",
                                         "Tecnologia Assistiva", 
-                                        "Web Radio"
+                                        "Web Radio",
+                                        "Outro",
 									);
 									foreach ($atividades as $key => $value) {
 										echo " \n "; //quebra de linha
