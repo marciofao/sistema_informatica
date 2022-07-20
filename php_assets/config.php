@@ -11,6 +11,9 @@ define('CEP', '00000-000');
 define('EMAIL_CONTATO', 'email@example.com');
 define('CNPJ', '999999999');
 
+//LIMITE TEMPO DE SESSÃO
+define('SESSION_TIMEOUT', 10800); //3600 = 1 hora
+
 //ARRAY DE SETORES
 $setores_config = array(
 	
@@ -75,7 +78,11 @@ $database = new medoo([
 	]);
 
 
+// server should keep session data for AT LEAST 1 hour
+ini_set('session.gc_maxlifetime', SESSION_TIMEOUT);
 
+// each client should remember their session id for EXACTLY 1 hour
+session_set_cookie_params(SESSION_TIMEOUT); 
 
 
 	?>

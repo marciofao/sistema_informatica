@@ -1,6 +1,7 @@
 <?php
 @session_start(); // Inicializa a sessão
 
+
 if (!isset($_SESSION["usuario"]))
 {
 	header("location:index.php");
