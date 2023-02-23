@@ -24,6 +24,7 @@
     <li>Bootstrap</li>
     <li>PHP</li>
     <li>MySQL</li>
+    <li>Framework Medoo para proteção de sql injection</li>
 </ul>
 
 <p>
